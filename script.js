@@ -293,12 +293,12 @@ const timelineData = [
         },
         {
           "type":"image",
-          "src":"images/1970/カリーナカタログ.jpg",
+          "src":"images/1970/2000gt_small.jpg",
           "alt":"カリーナ",
         },
         {
           "type":"image",
-          "src" :"images/1970/カリーナ内装.jpg",
+          "src" :"images/1970/interior_small.jpg",
           "alt":"内装",
         },
       ]
