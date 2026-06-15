@@ -178,7 +178,8 @@ const timelineData = [
       "society": [
         {
           "type": "image",
-           "src": "images/1960/1968miniace.JPG"
+           "src": "images/1960/1968miniace.JPG",
+           "alt":"miniace",
         },
         {
           "type": "image",
@@ -198,7 +199,7 @@ const timelineData = [
     "era": "昭和44年",
     "title": "高岡工場オンライン生産指示",
     "visual": "2代目パブリカ",
-    "image": "images/1960/1969P.jpg",
+    "image": "images/1960/1969p.jpg",
     "spec1": "パブリカ",
     "spec2": "量産",
     "spec3": "大衆車",
@@ -213,8 +214,8 @@ const timelineData = [
         {
           "type": "image",
           "src": "images/1960/スペック.png",
-          "alt": "スペック"
-        }
+          "alt": "スペック",
+        },
       ],
       "plant": [
         {
@@ -225,27 +226,27 @@ const timelineData = [
         {
           "type":"image",
           "src" :"images/1960/1969-P2.jpg",
-          "alt" :""
+          "alt" :"p2",
         },
 
 
         {
           "type": "image",
           "src": "images/1960/inpane.jpg",
-          "alt": "インパネ"
-        }
+          "alt": "インパネ",
+        },
       ],
       "society": [
         {
           "type": "image",
           "src": "images/1960/パブリカピックアップ.jpg",
-          "alt":"トラック"
+          "alt":"トラック",
         },
         {
           "type": "image",
           "src": "images/1960/1969publicaVan.JPG",
-          "alt": "Van"
-        }
+          "alt": "Van",
+        },
       ]
     }
   },
