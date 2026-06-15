@@ -198,7 +198,7 @@ const timelineData = [
     "era": "昭和44年",
     "title": "高岡工場オンライン生産指示",
     "visual": "2代目パブリカ",
-    "image": "images/1960/1969P.png",
+    "image": "images/1960/1969P.jpg",
     "spec1": "パブリカ",
     "spec2": "量産",
     "spec3": "大衆車",
