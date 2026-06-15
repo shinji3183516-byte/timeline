@@ -269,12 +269,12 @@ const timelineData = [
         {
           "type": "image",
           "src": "images/1970/1970クーペ.JPG",
-          "alt" :""
+          "alt" :"クーペ",
         },
         {
           "type": "image",
           "src" :"images/1970/1970バン.JPG",
-          "alt" : ""
+          "alt" : "バン",
         },
         {
           "type": "image",
