@@ -86,7 +86,7 @@ const ERA_RUNNER_CARS = [
   }
 ];
 
-const TOYOTA_MARK_IMAGE = "images/toyotamark.jpg";
+const TOYOTA_MARK_IMAGE = "images/mark.jpg";
 
 const timelineData = [
   {
@@ -112,18 +112,18 @@ const timelineData = [
         {
           "type":"image",
           "src":"images/1960/123.png",
-          "art" :"スペック",
+          "art" :"スペック"
         }
       ],
       "car2": [
         {
-          "src": "images/1960/1966publicaPickup.JPG",
+          "type": "text",
           "text": "工場の歩みの起点。生産車種と工場の歴史をここから紹介します。パブリカは1961年に発売され、エンジンは697cc強制空冷水平対向２気筒OHV最高出力28ps最高速度110km/h トヨタ車史上唯一の空冷エンジン搭載　発売当時価格38.9万円。"
         },
         {
           "type": "image",
           "src": "images/1960/1966publica.JPG",
-          "alt": "パブリカ",
+          "alt": "パブリカ"
         }
       ],
       "Plant": [
@@ -163,33 +163,29 @@ const timelineData = [
         },
         {
           "type": "image",
-           "src": "images/1960/カタログミニ.jpg",
-           "alt" : "miniace",
+           "src": "images/1960/ミニエーストラック.jpg",
+           "alt" : "miniace"
         },
         {
           "type" : "text",
           "text" : "スペック  エンジンは空冷水平対向2気筒OHV800cc・36PS (2U-B)。トランスミッションは4速MTコラムシフト。サスペンションは、フロントがダブルウィッシュボーン/トーションバーの独立式、リヤがリジッドアクスル/リーフスプリング"
         },
-
-        
-        
-        
-      ],
+       ],
       "society": [
         {
           "type": "image",
            "src": "images/1960/1968miniace.JPG",
-           "alt":"miniace",
+           "alt":"miniace"
         },
         {
           "type": "image",
-          "src" : "images/1960/カタログミニエース.jpg",
-          "alt" : "ミニエース",
+          "src" : "images/1960/カタログエース.jpg",
+          "alt" : "ミニエース"
         },
         {
-          "type": "image",
-          "src" : "images/1960/ミニエースカタログ.jpg",
-          "alt" : "ミニエース",
+          "type": "text",
+          "text" : "パブリカの部品を流用したトヨタ最小のキャブオーバー車として1967年に登場。愛嬌あるデザインと実用性で人気を集め、トラック・バンに加え乗用登録のコーチも展開。空冷2気筒ながら販売は好調で、競合車と互角に戦った。1971年にライトエースへバトンタッチ後も改良されつつ1975年まで生産が続いた。",
+          
         },
       ]
     }
@@ -213,8 +209,8 @@ const timelineData = [
 
         {
           "type": "image",
-          "src": "images/1960/スペック.png",
-          "alt": "スペック",
+          "src": "images/1960/spec.png",
+          "alt": "スペック"
         },
       ],
       "plant": [
@@ -226,26 +222,26 @@ const timelineData = [
         {
           "type":"image",
           "src" :"images/1960/1969-P2.jpg",
-          "alt" :"p2",
+          "alt" :"p2"
         },
 
 
         {
           "type": "image",
           "src": "images/1960/inpane.jpg",
-          "alt": "インパネ",
+          "alt": "インパネ"
         },
       ],
       "society": [
         {
           "type": "image",
-          "src": "images/1960/パブリカピックアップ.jpg",
-          "alt":"トラック",
+          "src": "images/1960/pickup.jpg",
+          "alt":"トラック"
         },
         {
           "type": "image",
           "src": "images/1960/1969publicaVan.JPG",
-          "alt": "Van",
+          "alt": "Van"
         },
       ]
     }
@@ -269,18 +265,18 @@ const timelineData = [
       "plant": [
         {
           "type": "image",
-          "src": "images/1970/1970クーペ.JPG",
-          "alt" :"クーペ",
+          "src": "images/1970/1970cope.JPG",
+          "alt" :"クーペ"
         },
         {
           "type": "image",
-          "src" :"images/1970/1970バン.JPG",
-          "alt" : "バン",
+          "src" :"images/1970/1970VAN.JPG",
+          "alt" : "バン"
         },
         {
           "type": "image",
-          "src" :"images/1970/1971スプリンター.JPG",
-          "alt": "スプリンター",
+          "src" :"images/1970/1971sprinter.JPG",
+          "alt": "スプリンター"
         },
 
 
@@ -289,8 +285,8 @@ const timelineData = [
       "society": [
         {
           "type": "image",
-          "src": "images/1970/1972カリーナハードトップ.JPG",
-          "alt":"カリーナ",
+          "src": "images/1970/カリーナHT.JPG",
+          "alt":"カリーナ"
         },
         {
           "type":"image",
@@ -300,7 +296,7 @@ const timelineData = [
         {
           "type":"image",
           "src" :"images/1970/interior_small.jpg",
-          "alt":"内装",
+          "alt":"内装"
         },
       ]
     }
