@@ -302,11 +302,11 @@ const timelineData = [
     }
   },
   {
-    "year": "1984",
-    "era": "昭和59年",
-    "title": "品質向上とグローバル対応",
-    "visual": "QUALITY",
-    "image": "images/5.jpg",
+    "year": "1982",
+    "era": "昭和57年",
+    "title": "トヨタ初の4WD乗用車カリブ",
+    "visual": "RVブームの先駆け",
+    "image": "images/1680/1982スプリンターカリブ.jpg",
     "spec1": "品質",
     "spec2": "効率化",
     "spec3": "海外支援",
@@ -318,8 +318,8 @@ const timelineData = [
         },
         {
           "type": "image",
-          "src": "images/car/FX.jpg",
-          "alt": "カローラFX"
+          "src": "images/1980/1982コルサハッチバック.jpg",
+          "alt": "コルサ"
         }
       ],
       "plant": [
