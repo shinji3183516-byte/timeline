@@ -275,7 +275,7 @@ const timelineData = [
         },
         {
           "type": "image",
-          "src" :"images/1970/1971sprinter.JPG",
+          "src" :"images/1970/71sprinter.JPG",
           "alt": "スプリンター"
         },
 
@@ -306,15 +306,16 @@ const timelineData = [
     "era": "昭和57年",
     "title": "トヨタ初の4WD乗用車カリブ",
     "visual": "RVブームの先駆け",
-    "image": "images/1680/1982スプリンターカリブ.jpg",
+    "image": "images/1680/1982carib.jpg",
     "spec1": "品質",
     "spec2": "効率化",
     "spec3": "海外支援",
     "content": {
       "car": [
         {
-          "type": "text",
-          "text": "カローラFXなど、使いやすさと品質を重視した車種が登場しました。"
+          "type": "image",
+          "src": "images/1980/1982コルサ.jpg",
+          "alt": "コルサ"
         },
         {
           "type": "image",
@@ -324,8 +325,9 @@ const timelineData = [
       ],
       "plant": [
         {
-          "type": "text",
-          "text": "品質・生産性向上に取り組み、グローバルな車づくりへつながりました。米国GMとの合弁会社「NUMMI」の立ち上げでは、親工場として現地従業員の研修など生産ノウハウを支援。"
+          "type": "image",
+          "src": "images/1980/1982カローラワゴン.jpg",
+          "alt": "wagon"
         },
         {
           "type": "image",
