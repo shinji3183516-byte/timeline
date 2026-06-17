@@ -1055,6 +1055,7 @@ function showData(index) {
 
 
   updateEditorYear(item);
+  rotateLuxuryPanel();
 
   document.querySelectorAll(".year-node").forEach(function(node) {
     node.classList.toggle("active", Number(node.dataset.index) === index);
@@ -1459,10 +1460,24 @@ window.addEventListener("resize", function() {
   centerNode(activeIndex);
 });
 
-restoreToyotaMark();
+// 左上の余分なTOYOTA文字を出さないため、JSでロゴを追加しません。
+// restoreToyotaMark();
 buildTimeline();
 centerNode(0);
 createRav4Runner();
 updatePlayButtons();
 animate();
 scheduleRav4Run();
+
+
+/* ===== 追加：高級感のあるタイトル帯アニメーション ===== */
+function rotateLuxuryPanel() {
+  const target = document.querySelector(".visual-title-box");
+  if (!target) return;
+
+  target.classList.remove("luxury-rotate");
+
+  void target.offsetWidth;
+
+  target.classList.add("luxury-rotate");
+}

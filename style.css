@@ -1043,3 +1043,157 @@ article h3 span {
     height: 74px;
   }
 }
+
+/* =========================================================
+   最終上書き：3つのコンテナ内の画像切れ防止
+   車の形は変えない / 画像を切らない / 枠内に自動で収める
+   ========================================================= */
+.event-grid article {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.event-grid article .article-content,
+.event-grid article .image-block {
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.event-grid article img,
+.article-content img,
+.image-block img,
+.info-photo {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .96);
+}
+
+/* 写真の上下に少し余白を入れて、端が切れて見えないようにする */
+.event-grid article .image-block {
+  padding: 6px 0 !important;
+}
+
+/* 横長画像だけ大きくなりすぎる時の上限 */
+.event-grid article img.info-photo,
+.event-grid article .image-block > img {
+  max-height: 185px !important;
+}
+
+/* 左側メイン写真も形を変えず、切れないようにする */
+.photo-link img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+
+/* ===== 追加：高級感のある金色発光アニメーション =====
+   年号が中央に来て表示が切り替わるたびに、右上のタイトル帯だけが上品に光ります。
+*/
+.visual-title-box {
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+  will-change: transform, box-shadow, filter;
+}
+
+.visual-title-box::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 36%,
+    rgba(255, 236, 170, .12) 44%,
+    rgba(255, 215, 94, .62) 50%,
+    rgba(255, 244, 206, .18) 56%,
+    transparent 66%,
+    transparent 100%
+  );
+  transform: translateX(-62%) rotate(8deg);
+}
+
+.luxury-rotate {
+  animation: luxuryGoldGlow 2.1s ease-in-out;
+}
+
+.luxury-rotate::after {
+  animation: luxuryGoldSweep 2.1s ease-in-out;
+}
+
+.luxury-rotate #visualTitle {
+  animation: luxuryGoldText 2.1s ease-in-out;
+}
+
+@keyframes luxuryGoldGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: inset 0 0 34px rgba(216, 183, 106, .06);
+    filter: brightness(1);
+  }
+
+  38% {
+    transform: scale(1.018);
+    box-shadow:
+      inset 0 0 40px rgba(255, 226, 140, .18),
+      0 0 24px rgba(216, 183, 106, .52),
+      0 0 62px rgba(216, 183, 106, .26);
+    filter: brightness(1.18);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: inset 0 0 34px rgba(216, 183, 106, .06);
+    filter: brightness(1);
+  }
+}
+
+@keyframes luxuryGoldSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-62%) rotate(8deg);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: .92;
+    transform: translateX(62%) rotate(8deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(88%) rotate(8deg);
+  }
+}
+
+@keyframes luxuryGoldText {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(216, 183, 106, 0));
+  }
+
+  42% {
+    filter:
+      drop-shadow(0 0 10px rgba(255, 226, 140, .76))
+      drop-shadow(0 0 24px rgba(216, 183, 106, .42));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0 rgba(216, 183, 106, 0));
+  }
+}
