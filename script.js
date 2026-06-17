@@ -86,7 +86,7 @@ const ERA_RUNNER_CARS = [
   }
 ];
 
-const TOYOTA_MARK_IMAGE = "images/mark.jpg";
+const TOYOTA_MARK_IMAGE = "images/toyotamark.jpg";
 
 const timelineData = [
   {
@@ -290,7 +290,7 @@ const timelineData = [
         },
         {
           "type":"image",
-          "src":"images/1970/2000gt_small.jpg",
+          "src":"images/1970/2000gt_1977.jpg",
           "alt":"カリーナ",
         },
         {
@@ -302,80 +302,125 @@ const timelineData = [
     }
   },
   {
-    "year": "1982",
-    "era": "昭和57年",
-    "title": "トヨタ初の4WD乗用車カリブ",
-    "visual": "RVブームの先駆け",
-    "image": "images/1680/1982carib.jpg",
-    "spec1": "品質",
+    "year": "1975~",
+    "era": "昭和50年",
+    "title": "1000湖ラリー",
+    "visual": "3代目カローラ",
+    "image": "images/1970/1975Rally.jpg",
+    "SPEC1":  "",
+    "spec1": "",
     "spec2": "効率化",
     "spec3": "海外支援",
     "content": {
       "car": [
         {
           "type": "image",
-          "src": "images/1980/1982コルサ.jpg",
-          "alt": "コルサ"
+          "src": "images/1970/1974スプリンター.JPG",
+          "alt": "スプリンター"
         },
         {
           "type": "image",
-          "src": "images/1980/1982コルサハッチバック.jpg",
+          "src": "images/1970/1976リフトバック.jpg",
           "alt": "コルサ"
-        }
+        },
+        {
+          "type":"image",
+          "src" :"images/1970/1974カローラハードトップ.JPG",
+          "alt" :"HT"
+        },
       ],
       "plant": [
         {
           "type": "image",
-          "src": "images/1980/1982カローラワゴン.jpg",
+          "src": "images/1970/1977クーペ.jpg",
           "alt": "wagon"
         },
         {
           "type": "image",
-          "src": "images/car/1000man.jpg",
+          "src": "images/1970/1977spクーペ.jpg",
           "alt": "1000万台"
+        },
+        {
+          "type":"image",
+          "src": "images/1970/1979カローラ.jpg",
+          "alt": "カローラ"
         }
       ],
       "society": [
         {
-          "type": "text",
-          "text": "省エネ志向や小型車需要が高まりました。ファミコン人気拡大、ロサンゼルスオリンピック開催。"
+          "type": "image",
+          "src": "images/1970/cb8.jpg",
+          "alt":"ラリー"
         },
         {
           "type": "image",
-          "src": "images/society/Olympic.jpg",
-          "alt": "ロサンゼルスオリンピック"
-        }
-      ]
+          "src": "images/1970/Designer.jpg",
+          "alt": "ラリー"
+        },
+      ],
     }
   },
   {
-    "year": "1989",
-    "era": "平成1年",
-    "title": "追加シート：1989",
-    "visual": "ADD",
-    "image": "",
+    "year": "1982",
+    "era": "昭和57年",
+    "title": "追加シート：1,000万台",
+    "visual": "カローラが販売の中心",
+    "image": "images/1980/10000000.jpg",
     "spec1": "追加枠",
     "spec2": "写真追加",
     "spec3": "編集用",
     "content": {
       "car": [
         {
-          "type": "text",
-          "text": "ここに1989年の車紹介を入力してください。"
-        }
+          "type": "image",
+          "src": "images/1980/レビン.jpg",
+          "alt": "Levin"
+        },
+        {
+          "type":"image",
+          "src": "images/1980/トレノ.jpg",
+          "alt":"トレノ"
+        },
+        {
+          "type":"image",
+          "src":"images/1980/4AG.jpg",
+          "alt":"4AG"
+        },
       ],
       "plant": [
         {
-          "type": "text",
-          "text": "ここに1989年の工場の出来事を入力してください。"
-        }
+          "type": "image",
+          "src": "images/1980/1984カローラFX.jpg",
+          "alt": "FX"
+        },
+        {
+          "type":"image",
+          "src" :"images/1980/1982コルサ.jpg",
+          "alt":"コルサ"
+        },
+        {
+          "type":"image",
+          "src": "images/1980/1982カローラワゴン.jpg",
+          "alt":"wagon"
+        },
       ],
       "society": [
         {
-          "type": "text",
-          "text": "ここに1989年の社会の出来事を入力してください。"
-        }
-      ]
+          "type": "image",
+          "image": "images/1980/1982carib.jpg",
+          "alt":"カリブ"
+        },
+        {
+          "type":"image",
+          "src" :"images/1980/1982コルサハッチバック.jpg",
+          "alt" :"コルサ"
+        },
+        {
+          "type":"image",
+          "src" :"images/1980/1983カローラ.jpg",
+          "alt": "カローラ"
+        },
+      ],
     }
   },
   {
