@@ -1320,7 +1320,8 @@ function restoreToyotaMark() {
 }
 
 function getRunnerCarConfigByYear(year) {
-  const targetYear = Number(year);
+  // 「1970~1972」「1975~」のような表記でも先頭の年を取得します。
+  const targetYear = parseInt(year, 10);
 
   if (Number.isNaN(targetYear)) {
     return ERA_RUNNER_CARS[0];

@@ -1197,3 +1197,67 @@ article h3 span {
     filter: drop-shadow(0 0 0 rgba(216, 183, 106, 0));
   }
 }
+
+
+/* ===== 右上：60周年ロゴ =====
+   TAKAOKA PLANT ARCHIVEボタンを削除し、ロゴ画像に差し替え */
+.archive-logo {
+  flex: 0 0 auto;
+  width: clamp(54px, 5.2vw, 82px);
+  height: clamp(54px, 5.2vw, 82px);
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .55))
+          drop-shadow(0 0 10px rgba(120, 231, 255, .22));
+}
+
+.archive-logo:hover {
+  transform: scale(1.04);
+}
+
+
+/* ===== 右上ロゴ：通常時ゆっくり発光 ===== */
+.archive-logo {
+  border-radius: 16px !important;
+  padding: 4px !important;
+  background: rgba(255, 255, 255, .045) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .16),
+    0 10px 22px rgba(0, 0, 0, .55),
+    0 0 10px rgba(120, 231, 255, .20) !important;
+  animation: archiveLogoGlow 5.2s ease-in-out infinite;
+  transition: transform .25s ease, filter .25s ease, box-shadow .25s ease;
+}
+
+.archive-logo:hover {
+  transform: scale(1.05);
+  filter:
+    drop-shadow(0 12px 24px rgba(0, 0, 0, .62))
+    drop-shadow(0 0 16px rgba(120, 231, 255, .45));
+}
+
+@keyframes archiveLogoGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter:
+      drop-shadow(0 10px 22px rgba(0, 0, 0, .55))
+      drop-shadow(0 0 8px rgba(120, 231, 255, .18));
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, .14),
+      0 10px 22px rgba(0, 0, 0, .55),
+      0 0 10px rgba(120, 231, 255, .18);
+  }
+
+  50% {
+    transform: scale(1.035);
+    filter:
+      drop-shadow(0 12px 26px rgba(0, 0, 0, .62))
+      drop-shadow(0 0 18px rgba(120, 231, 255, .52))
+      drop-shadow(0 0 24px rgba(216, 183, 106, .34));
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, .24),
+      0 12px 28px rgba(0, 0, 0, .6),
+      0 0 18px rgba(120, 231, 255, .42),
+      0 0 30px rgba(216, 183, 106, .24);
+  }
+}
