@@ -265,17 +265,17 @@ const timelineData = [
       "plant": [
         {
           "type": "image",
-          "src": "images/1970/1970cope.JPG",
+          "src": "images/1970/sedan.jpg",
           "alt" :"クーペ"
         },
         {
           "type": "image",
-          "src" :"images/1970/1970VAN.JPG",
+          "src" :"images/1970/darkblue.jpg",
           "alt" : "バン"
         },
         {
           "type": "image",
-          "src" :"images/1970/71sprinter.JPG",
+          "src" :"images/1970/sedan.jpg",
           "alt": "スプリンター"
         },
 
@@ -315,29 +315,29 @@ const timelineData = [
       "car": [
         {
           "type": "image",
-          "src": "images/1970/1974スプリンター.JPG",
-          "alt": "スプリンター"
+          "src": "images/1970/78コルサ.JPG",
+          "alt": "コルサ"
         },
         {
           "type": "image",
-          "src": "images/1970/1976リフトバック.jpg",
+          "src": "images/1970/78コルサクーペ.jpg",
           "alt": "コルサ"
         },
         {
           "type":"image",
-          "src" :"images/1970/1974カローラハードトップ.JPG",
+          "src" :"images/1970/79クーペ.jpg",
           "alt" :"HT"
         },
       ],
       "plant": [
         {
           "type": "image",
-          "src": "images/1970/1977クーペ.jpg",
+          "src": "images/1970/78.jpg",
           "alt": "wagon"
         },
         {
           "type": "image",
-          "src": "images/1970/1977spクーペ.jpg",
+          "src": "images/1970/79カローラ.jpg",
           "alt": "1000万台"
         },
         {
@@ -424,11 +424,11 @@ const timelineData = [
     }
   },
   {
-    "year": "1997",
-    "era": "平成9年",
-    "title": "プリウス生産開始",
-    "visual": "PRIUS",
-    "image": "images/prius.jpg",
+    "year": "1987",
+    "era": "昭和62年",
+    "title": "フレキシブルボデーライン",
+    "visual": "4WD",
+    "image": "images/1980/1987カローラレビン.jpg",
     "spec1": "HV",
     "spec2": "環境技術",
     "spec3": "新時代",
@@ -436,33 +436,56 @@ const timelineData = [
       "car": [
         {
           "type": "text",
-          "text": "世界初の量産ハイブリッド車プリウスの生産により、環境技術の時代へ進みました。SUV初代ハリアー登場。"
+          "text": "「カローラ」「スプリンター」ラインオフに伴い、ボデー工程にFBL（フレキシブルボデーライン）導入",
         },
         {
           "type": "image",
-          "src": "images/car/shodaiharr.jpg",
-          "alt": "初代ハリアー"
-        }
+          "src": "images/1980/1982carib.jpg",
+          "alt": "カリブ"
+        },
+        {
+          "type":"image",
+          "src":"images/1980/1987カロ.jpg",
+          "alt":"sedan"
+
+        },
       ],
       "plant": [
         {
-          "type": "text",
-          "text": "初代プリウスの生産を開始しました。高岡工場にとって、環境技術と新しい車づくりへの大きな転機となりました。"
-        }
+          "type": "image",
+          "src": "images/1980/87トレノ.jpg",
+          "alt": "FFレビン"
+        },
+        {
+          "type":"image",
+          "src" :"images/1980/1987カローラワゴン.jpg",
+          "alt":"wagon"
+        
+        },
+        {
+          "type":"image",
+          "src":"images/1980/1987スプリンター.jpg",
+        },
       ],
       "society": [
         {
-          "type": "text",
-          "text": "環境性能と技術革新への関心が高まりました。金融危機、京都議定書の採択、東京湾アクアライン開通、消費税5％など、社会の転換点となる出来事が続きました。"
+          "type": "image",
+          "src": "images/1980/1987FX.jpg",
+          "alt":"FX"
         },
         {
           "type": "image",
-          "src": "images/Aqua.jpg",
-          "alt": "東京湾アクアライン"
-        }
-      ]
+          "src": "images/1980/1986コルサハッチバック.jpg",
+          "alt": "コルサ"
+        },
+       {
+        "type":"image",
+        "src":"images/1987シエロ.jpg",
+        "alt":"シエロ"
+       }
+      ],
     }
-  },
+  }, 
   {
     "year": "1999",
     "era": "平成11年",
