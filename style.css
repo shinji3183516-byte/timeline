@@ -1261,3 +1261,59 @@ article h3 span {
       0 0 30px rgba(216, 183, 106, .24);
   }
 }
+
+
+/* ===== 追加：2026年から1966年へ戻る時の全車パレード ===== */
+.all-cars-parade {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.all-cars-parade__car {
+  position: absolute;
+  top: var(--parade-lane, 42px);
+  left: 0;
+  width: var(--parade-width, clamp(190px, 19vw, 320px));
+  height: clamp(66px, 7vw, 116px);
+  opacity: 0;
+  transform: translateX(calc(100vw + 130%));
+  filter: drop-shadow(0 13px 16px rgba(0, 0, 0, .68));
+  animation: allCarsParadeDrive 4.8s cubic-bezier(.22, .74, .28, 1) var(--parade-delay, 0s) forwards;
+}
+
+.all-cars-parade__car img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+}
+
+@keyframes allCarsParadeDrive {
+  0% {
+    transform: translateX(calc(100vw + 130%)) scale(.92);
+    opacity: 0;
+  }
+
+  7% {
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-145%) scale(1.02);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .all-cars-parade__car {
+    height: 72px;
+  }
+}

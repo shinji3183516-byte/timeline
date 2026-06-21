@@ -306,7 +306,7 @@ const timelineData = [
     "era": "昭和50年",
     "title": "1000湖ラリー",
     "visual": "3代目カローラ",
-    "image": "images/1970/1975Rally.jpg",
+    "image": "images/1970/1975ラリー.jpg",
     "SPEC1":  "",
     "spec1": "",
     "spec2": "効率化",
@@ -354,7 +354,7 @@ const timelineData = [
         },
         {
           "type": "image",
-          "src": "images/1970/75rally.jpg",
+          "src": "images/1970/Rally75.jpg",
           "alt": "ラリー"
         },
       ],
@@ -480,7 +480,7 @@ const timelineData = [
         },
        {
         "type":"image",
-        "src":"images/1987シエロ.jpg",
+        "src":"images/1980/1987シエロ.jpg",
         "alt":"シエロ"
        }
       ],
@@ -544,24 +544,30 @@ const timelineData = [
     }
   },
   {
-    "year": "2001",
-    "era": "平成13年",
-    "title": "工場生産累計2,000万台",
-    "visual": "20M",
-    "image": "images/corolla_runx.jpg",
+    "year": "1999",
+    "era": "平成11年",
+    "title": "Vitz",
+    "visual": "Vitz Fun Cargo ",
+    "image": "images/1990/1999ヴィッツ.JPG",
     "spec1": "2,000万台",
     "spec2": "高効率",
     "spec3": "品質強化",
     "content": {
       "car": [
         {
-          "type": "text",
-          "text": "カローラ ランクス・アレックスなど、日常の使いやすさを重視したモデルが生産されました。"
+          "type": "image",
+          "src": "images/1990/1998対米.jpg",
+          "alt": "アメリカ"
         },
         {
           "type": "image",
-          "src": "images/car/01.jpg",
-          "alt": "ランクス・アレックス"
+          "src": "images/1990/1999ファンカーゴ.JPG",
+          "alt": "ファンカーゴ"
+        },
+        {
+          "type":"image",
+          "src":"images/1990/1999プラッツ.JPG",
+          "alt":"プラッツ"
         }
       ],
       "plant": [
@@ -584,10 +590,10 @@ const timelineData = [
     }
   },
   {
-    "year": "2006",
-    "era": "平成18年",
+    "year": "2000~",
+    "era": "平成12年",
     "title": "追加シート：2006",
-    "visual": "ADD",
+    "visual": "",
     "image": "",
     "spec1": "追加枠",
     "spec2": "写真追加",
@@ -871,6 +877,7 @@ let manualPaused = false;
 let hoverPaused = false;
 let activeIndex = 0;
 let localAdditions = loadLocalAdditions();
+let allCarsParadeRunning = false;
 
 const speedMap = {
   verySlow: 0.1,
@@ -1206,8 +1213,14 @@ function updateSelectedByCenter() {
 
   const newIndex = Number(nearestNode.dataset.index);
   if (newIndex !== activeIndex) {
+    const previousIndex = activeIndex;
     activeIndex = newIndex;
     showData(activeIndex);
+
+    // 2026年から1966年へ戻る瞬間に、歴代の全車を時間差で走らせます。
+    if (previousIndex === timelineData.length - 1 && newIndex === 0) {
+      runAllCarsParade();
+    }
   }
 }
 
@@ -1411,7 +1424,7 @@ function createRav4Runner() {
 
 function runRav4Once() {
   const runner = timelineFrame ? timelineFrame.querySelector(".rav4-runner") : null;
-  if (!runner || runner.classList.contains("is-running") || isPaused()) return;
+  if (!runner || runner.classList.contains("is-running") || isPaused() || allCarsParadeRunning) return;
 
   const selectedCar = getCurrentRunnerCarConfig();
   const car = runner.querySelector("img");
@@ -1433,6 +1446,46 @@ function runRav4Once() {
   runner.classList.remove("is-running");
   void runner.offsetWidth;
   runner.classList.add("is-running");
+}
+
+// 2026年から1966年へ戻る際に、年代別の全車を年表帯へ走らせます。
+function runAllCarsParade() {
+  if (!timelineFrame || allCarsParadeRunning || isPaused()) return;
+
+  allCarsParadeRunning = true;
+
+  const normalRunner = timelineFrame.querySelector(".rav4-runner");
+  if (normalRunner) {
+    normalRunner.classList.remove("is-running");
+  }
+
+  const paradeLayer = document.createElement("div");
+  paradeLayer.className = "all-cars-parade";
+  paradeLayer.setAttribute("aria-hidden", "true");
+
+  ERA_RUNNER_CARS.forEach(function(carConfig, index) {
+    const runner = document.createElement("div");
+    runner.className = "all-cars-parade__car";
+    runner.style.setProperty("--parade-delay", (index * 0.42) + "s");
+    runner.style.setProperty("--parade-lane", (22 + (index % 3) * 25) + "px");
+    runner.style.setProperty("--parade-width", carConfig.width || "clamp(190px, 19vw, 320px)");
+
+    const image = document.createElement("img");
+    image.src = carConfig.src;
+    image.alt = carConfig.alt || "";
+    image.draggable = false;
+
+    runner.appendChild(image);
+    paradeLayer.appendChild(runner);
+  });
+
+  timelineFrame.appendChild(paradeLayer);
+
+  // 最後の車が走り終えたあと、レイヤーを削除して通常走行へ戻します。
+  window.setTimeout(function() {
+    paradeLayer.remove();
+    allCarsParadeRunning = false;
+  }, 7600);
 }
 
 function scheduleRav4Run() {
