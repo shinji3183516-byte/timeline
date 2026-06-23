@@ -821,3 +821,19 @@ textarea{
     transform: translate(100%, -50%);
   }
 }
+/* センター選択中の年表カードをコンテナごと光らせる */
+.year-node.is-active,
+.year-node.active,
+.year-node.selected {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 230, 150, 0.38),
+      rgba(255, 190, 60, 0.18) 45%,
+      rgba(0, 0, 0, 0.85) 100%);
+  box-shadow:
+    0 0 25px rgba(255, 210, 90, 0.65),
+    0 0 55px rgba(255, 180, 40, 0.45),
+    inset 0 0 28px rgba(255, 220, 120, 0.35);
+  filter: brightness(1.22);
+  transform: scale(1.04);
+}
