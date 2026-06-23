@@ -243,7 +243,12 @@ const timelineData = [
           "src": "images/1960/1969publicaVan.JPG",
           "alt": "Van"
         },
-      ]
+        {
+          "type":"image",
+          "src":"images/1960/1966オープン.jpg",
+          "alt":"open"
+        },
+      ],
     }
   },
   {
@@ -357,6 +362,11 @@ const timelineData = [
           "src": "images/1970/Rally75.jpg",
           "alt": "ラリー"
         },
+        {
+          "type":"image",
+          "src":"images/1970/1974トレノ.jpg",
+          "alt":"トレノ"
+        },
       ],
     }
   },
@@ -407,8 +417,8 @@ const timelineData = [
       "society": [
         {
           "type": "image",
-          "image": "images/1980/1982carib.jpg",
-          "alt":"カリブ"
+          "src": "images/1980/1982スプリンター.jpg",
+          "alt":"スプリンター"
         },
         {
           "type":"image",
@@ -417,7 +427,7 @@ const timelineData = [
         },
         {
           "type":"image",
-          "src" :"images/1980/1983カローラ.jpg",
+          "src" :"images/1980/1987カローラSD.jpg",
           "alt": "カローラ"
         },
       ],
@@ -504,12 +514,12 @@ const timelineData = [
         },
         {
           "type": "image",
-          "src": "images/1990/91バン.jpg",
+          "src": "images/1990/1990バン.jpg",
           "alt": "カローラ"
         },
         {
           "type":"image",
-          "src":"images/1990/ワゴン91.jpg",
+          "src":"images/1990/wagon.jpg",
           "alt":"wagon"
         },
       ],
@@ -537,7 +547,7 @@ const timelineData = [
         },
         {
           "type": "image",
-          "src": "images/1990/カローラFX.jpg",
+          "src": "images/1990/fx111.jpg",
           "alt": "FX"
         },
       ]
