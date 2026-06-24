@@ -1235,9 +1235,14 @@ function updateSelectedByCenter() {
   const newIndex = Number(nearestNode.dataset.index);
   if (newIndex !== activeIndex) {
   const previousIndex = activeIndex;
+
   activeIndex = newIndex;
+
   showData(activeIndex);
 
+  nearestNode.classList.remove("timeline-highlight");
+  void nearestNode.offsetWidth;
+  nearestNode.classList.add("timeline-highlight");
   nearestNode.classList.remove("timeline-highlight");
   void nearestNode.offsetWidth;
   nearestNode.classList.add("timeline-highlight");
