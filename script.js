@@ -604,16 +604,27 @@ const timelineData = [
     "era": "平成12年",
     "title": "追加シート：2006",
     "visual": "",
-    "image": "",
+    "image": "images/2000/bB.jpg",
     "spec1": "追加枠",
     "spec2": "写真追加",
     "spec3": "編集用",
     "content": {
       "car": [
         {
-          "type": "text",
-          "text": "ここに2006年の車紹介を入力してください。"
-        }
+          "type": "image",
+          "src": "images/2000/ist.jpg",
+          "alt":"ist"
+        },
+        {
+          "type":"image",
+          "src" :"images/2000/porte.jpg",
+          "alt":"porte"
+        },
+        {
+          "type":"image",
+          "src" :"images/2000/ラクティス.jpg",
+          "alt":""
+        },
       ],
       "plant": [
         {
@@ -1223,15 +1234,23 @@ function updateSelectedByCenter() {
 
   const newIndex = Number(nearestNode.dataset.index);
   if (newIndex !== activeIndex) {
-    const previousIndex = activeIndex;
-    activeIndex = newIndex;
-    showData(activeIndex);
+  const previousIndex = activeIndex;
+  activeIndex = newIndex;
+  showData(activeIndex);
 
-    // 2026年から1966年へ戻る瞬間に、歴代の全車を時間差で走らせます。
-    if (previousIndex === timelineData.length - 1 && newIndex === 0) {
-      runAllCarsParade();
-    }
+  nearestNode.classList.remove("timeline-highlight");
+  void nearestNode.offsetWidth;
+  nearestNode.classList.add("timeline-highlight");
+
+  setTimeout(() => {
+    nearestNode.classList.remove("timeline-highlight");
+  }, 1500);
+
+  // 2026年から1966年へ戻る瞬間に、歴代の全車を時間差で走らせます。
+  if (previousIndex === timelineData.length - 1 && newIndex === 0) {
+    runAllCarsParade();
   }
+}
 }
 
 function keepEndlessLoop() {
