@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>画像一括整形ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LOCAL IMAGE PROCESSOR</p>
+        <h1>画像一括整形ツール</h1>
+        <p class="lead">リサイズ、ファイル名変更、背景透過、透明余白の統一をブラウザ内だけで処理します。</p>
+      </div>
+      <div class="privacy">画像は外部へ送信されません</div>
+    </header>
+
+    <section class="panel upload-panel">
+      <label id="dropZone" class="drop-zone" for="fileInput">
+        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+        <span class="drop-icon">＋</span>
+        <strong>画像をここへドロップ</strong>
+        <small>またはクリックして複数選択</small>
+      </label>
+      <div class="upload-actions">
+        <span id="fileCount">0枚選択</span>
+        <button id="clearButton" class="button ghost" type="button">すべて削除</button>
+      </div>
+    </section>
+
+    <section class="panel settings-panel">
+      <h2>処理設定</h2>
+      <div class="settings-grid">
+        <label>
+          出力形式
+          <select id="outputFormat">
+            <option value="png">PNG（背景透過向け）</option>
+            <option value="jpeg">JPG</option>
+            <option value="webp">WebP</option>
+          </select>
+        </label>
+        <label>
+          横幅
+          <input id="targetWidth" type="number" min="1" max="8000" value="1200">
+        </label>
+        <label>
+          高さ
+          <input id="targetHeight" type="number" min="1" max="8000" value="800">
+        </label>
+        <label>
+          配置方法
+          <select id="fitMode">
+            <option value="contain">比率維持・全体を収める</option>
+            <option value="cover">比率維持・枠いっぱい</option>
+            <option value="stretch">指定サイズへ変形</option>
+          </select>
+        </label>
+        <label>
+          水平方向
+          <select id="alignX">
+            <option value="center">中央</option>
+            <option value="left">左</option>
+            <option value="right">右</option>
+          </select>
+        </label>
+        <label>
+          垂直方向
+          <select id="alignY">
+            <option value="bottom">下揃え（車向け）</option>
+            <option value="center">中央</option>
+            <option value="top">上</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-heading">
+          <div>
+            <h3>背景透過</h3>
+            <p>四隅から推定した背景色に近い部分を透明化します。</p>
+          </div>
+          <label class="switch"><input id="removeBackground" type="checkbox" checked><span></span></label>
+        </div>
+        <div class="settings-grid compact">
+          <label>
+            透過しきい値 <output id="thresholdValue">42</output>
+            <input id="threshold" type="range" min="5" max="140" value="42">
+          </label>
+          <label>
+            境界のぼかし <output id="featherValue">18</output>
+            <input id="feather" type="range" min="0" max="80" value="18">
+          </label>
+          <label>
+            影を残す
+            <select id="shadowMode">
+              <option value="soft">薄い影は残す</option>
+              <option value="strict">背景を強めに消す</option>
+            </select>
+          </label>
+        </div>
+        <p class="warning">白い車や複雑な背景では自動透過が完全でない場合があります。プレビューで確認してください。</p>
+      </div>
+
+      <div class="subsection">
+        <h3>ファイル名</h3>
+        <div class="settings-grid compact">
+          <label>
+            命名パターン
+            <input id="namePattern" type="text" value="{name}_{index}">
+          </label>
+          <label>
+            連番開始
+            <input id="startIndex" type="number" min="0" value="1">
+          </label>
+          <label>
+            連番の桁数
+            <input id="indexDigits" type="number" min="1" max="6" value="2">
+          </label>
+        </div>
+        <p class="hint">使用可能：<code>{name}</code> 元ファイル名、<code>{index}</code> 連番、<code>{width}</code>、<code>{height}</code></p>
+      </div>
+
+      <div class="main-actions">
+        <button id="processButton" class="button primary" type="button">一括処理する</button>
+        <button id="downloadZipButton" class="button success" type="button" disabled>ZIPで保存</button>
+      </div>
+      <div id="progressWrap" class="progress-wrap" hidden>
+        <div class="progress-bar"><span id="progressBar"></span></div>
+        <span id="progressText">処理中...</span>
+      </div>
+    </section>
+
+    <section class="panel results-panel">
+      <div class="results-header">
+        <h2>プレビュー</h2>
+        <span id="resultSummary">まだ処理されていません</span>
+      </div>
+      <div id="results" class="results-grid">
+        <div class="empty-state">画像を追加し、「一括処理する」を押してください。</div>
+      </div>
+    </section>
+  </main>
+
+  <template id="resultTemplate">
+    <article class="result-card">
+      <div class="checker"><img alt="処理後プレビュー"></div>
+      <div class="result-meta">
+        <strong class="result-name"></strong>
+        <span class="result-size"></span>
+        <button class="button small download-one" type="button">個別保存</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
