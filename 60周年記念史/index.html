@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高岡工場60周年記念史｜序章・1966〜1968年章</title>
+<style>
+/* ================================================================
+   高岡工場60周年記念史 ― 序章　自動演出エンジン v5
+   画像・音声はassetsフォルダ参照／完全オフライン／外部ライブラリ・CDN不使用
+   写真・音声はassetsフォルダに分離（GitHub Pages対応）
+   ================================================================ */
+:root{
+  --bg:#06080c;
+  --fg:#f4f6f9;
+  --sub:#98a3b3;
+  --accent:#e0112b;
+  --sepia:#c9a06a;
+  --line:#232b38;
+  --ink:#2b2620;
+  --ease:cubic-bezier(.16,.84,.32,1);
+  --p-site:url('assets/images/image_01.jpg');
+  --p-1966:url('assets/images/image_02.jpg');
+  --p-now:url('assets/images/image_03.jpg');
+  --p-hero:url('assets/images/image_04.jpg');
+  --p-side:url('assets/images/image_01.png');
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{height:100%;overflow:hidden;background:var(--bg)}
+body{height:100%;overflow:hidden;background:transparent}
+body{
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+  color:var(--fg);-webkit-font-smoothing:antialiased;cursor:pointer;
+}
+
+/* ================= 背景レイヤー ================= */
+#photoLayer{position:fixed;inset:0;z-index:-5;overflow:hidden;background:#06080c}
+#stage{background:transparent}
+#photoLayer .ph{
+  position:absolute;inset:-7%;
+  background-size:cover;background-position:center 45%;
+  opacity:0;transition:opacity 1.8s var(--ease),filter 1.8s var(--ease);
+  animation:kenburns 38s ease-in-out infinite alternate;
+  transform-origin:56% 46%;
+}
+@keyframes kenburns{0%{transform:scale(1.06)}100%{transform:scale(1.24) translate(-2.4%,-1.5%)}}
+#tint{position:fixed;inset:0;z-index:-4;pointer-events:none;mix-blend-mode:soft-light;opacity:0;
+  background:linear-gradient(160deg,rgba(201,160,106,.18),rgba(8,12,18,.55) 48%,rgba(224,17,43,.12));
+  transition:opacity 1.6s var(--ease)}
+#wash{position:fixed;inset:0;z-index:-4;pointer-events:none;
+  background:radial-gradient(120% 100% at 50% 0%,rgba(22,32,46,.32) 0%,rgba(6,8,12,.93) 68%);
+  transition:background 1.8s var(--ease)}
+#vignette{position:fixed;inset:0;z-index:-3;pointer-events:none;
+  box-shadow:inset 0 0 min(26vw,330px) rgba(0,0,0,.94)}
+#grain{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.2;
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px);
+  animation:drift 9s linear infinite}
+@keyframes drift{from{background-position:0 0}to{background-position:0 60px}}
+#dust{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5}
+.mote{position:absolute;border-radius:50%;background:rgba(255,240,215,.55);animation:float linear infinite}
+@keyframes float{
+  0%{transform:translate3d(0,110vh,0) scale(.6);opacity:0}
+  12%{opacity:.85}88%{opacity:.55}
+  100%{transform:translate3d(6vw,-12vh,0) scale(1.15);opacity:0}}
+
+/* ================= ペーパーモード（カタログ紙面） ================= */
+#paper{position:fixed;inset:0;z-index:-3;opacity:0;pointer-events:none;
+  transition:opacity 1.4s var(--ease);
+  background:radial-gradient(120% 90% at 50% 10%,#f6f2e9 0%,#ded6c6 60%,#c8bfad 100%)}
+#paper:after{content:"";position:absolute;inset:0;opacity:.35;
+  background-image:repeating-linear-gradient(0deg,rgba(120,105,80,.07) 0 1px,transparent 1px 4px),
+                   repeating-linear-gradient(90deg,rgba(120,105,80,.05) 0 1px,transparent 1px 5px)}
+body.papermode{--fg:var(--ink);--sub:#6b6152;--line:#bcb2a0}
+body.papermode #vignette{box-shadow:inset 0 0 min(24vw,300px) rgba(120,100,70,.45)}
+body.papermode #grain{opacity:.10;mix-blend-mode:multiply}
+body.papermode #dust{opacity:.18;mix-blend-mode:multiply}
+body.papermode .shadowtext{text-shadow:none}
+
+/* ================= ステージ ================= */
+#stage{position:fixed;inset:0}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:8vh 7vw;
+  opacity:0;visibility:hidden;transition:opacity .95s var(--ease),visibility .95s}
+.scene.active{opacity:1;visibility:visible}
+
+/* ================= 文字パーツ ================= */
+.eyebrow{font-size:clamp(11px,1.02vw,15px);letter-spacing:.44em;color:var(--sepia);
+  font-weight:700;margin-bottom:2.4vh}
+.eyebrow.red{color:var(--accent)}
+body.papermode .eyebrow{color:#a3762f}
+.year{font-size:clamp(58px,11.5vw,200px);font-weight:800;line-height:.9;letter-spacing:.03em;
+  background:linear-gradient(180deg,#fff 18%,#7b8595 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(29px,4.7vw,78px);font-weight:800;line-height:1.26}
+h2{font-size:clamp(21px,3.2vw,52px);font-weight:700;line-height:1.36}
+.lead{font-size:clamp(15px,1.5vw,25px);color:#c3ccd8;line-height:1.95;margin-top:2.6vh;max-width:44em}
+body.papermode .lead{color:#4d453a}
+.note{font-size:clamp(10px,.8vw,13px);color:#68738a;margin-top:3.4vh;line-height:1.75;max-width:64em}
+body.papermode .note{color:#7d7466}
+.center{text-align:center}.left{text-align:left}
+.shadowtext{text-shadow:0 4px 42px rgba(0,0,0,.92),0 1px 3px rgba(0,0,0,.85)}
+
+.rise{opacity:0;transform:translateY(28px)}
+.scene.active .rise{animation:rise 1s var(--ease) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.blur{opacity:0;filter:blur(14px);transform:scale(1.04)}
+.scene.active .blur{animation:unblur 1.4s var(--ease) forwards}
+@keyframes unblur{to{opacity:1;filter:blur(0);transform:none}}
+.scene.active .d1{animation-delay:.15s}.scene.active .d2{animation-delay:.42s}
+.scene.active .d3{animation-delay:.70s}.scene.active .d4{animation-delay:1.00s}
+.scene.active .d5{animation-delay:1.34s}.scene.active .d6{animation-delay:1.70s}
+
+.rule{width:2px;height:0;background:var(--accent);margin:3vh auto;box-shadow:0 0 22px var(--accent)}
+.scene.active .rule{animation:grow 1.1s var(--ease) .35s forwards}
+@keyframes grow{to{height:9vh}}
+.hrule{height:1px;width:0;background:linear-gradient(90deg,transparent,var(--sepia),transparent);margin:3vh auto}
+.scene.active .hrule{animation:groww 1.4s var(--ease) .4s forwards}
+@keyframes groww{to{width:min(560px,72vw)}}
+
+/* ================= 走るカローラ（側面・透過／右→左） ================= */
+#car{position:fixed;bottom:12vh;right:-46vw;width:min(40vw,560px);z-index:6;
+  background-size:contain;background-repeat:no-repeat;background-position:bottom center;
+  aspect-ratio:1500/570;opacity:0;pointer-events:none;
+  filter:drop-shadow(0 20px 26px rgba(0,0,0,.72))}
+#car.dark{filter:drop-shadow(0 20px 26px rgba(0,0,0,.8)) brightness(.92) contrast(1.05)}
+#car.drive{animation:drive 9.5s cubic-bezier(.26,.6,.3,1) forwards}
+@keyframes drive{0%{right:-46vw;opacity:0}8%{opacity:1}58%{right:26vw}100%{right:112vw;opacity:1}}
+#car.park{animation:park 2.8s var(--ease) forwards}
+@keyframes park{0%{right:-46vw;opacity:0}18%{opacity:1}100%{right:16vw;opacity:1}}
+#car.slow{animation:slowdrive 16s linear forwards}
+@keyframes slowdrive{0%{right:-46vw;opacity:0}6%{opacity:1}100%{right:114vw;opacity:1}}
+#road{position:fixed;bottom:9vh;left:0;right:0;height:22vh;z-index:5;pointer-events:none;opacity:0;
+  background:radial-gradient(52% 100% at 50% 100%,rgba(224,17,43,.18),transparent 72%);
+  transition:opacity 1.2s ease}
+
+/* ================= 数値 ================= */
+.metric{display:flex;align-items:baseline;gap:.3em;justify-content:center}
+.num{font-size:clamp(50px,10vw,164px);font-weight:800;line-height:1;
+  font-variant-numeric:tabular-nums;text-shadow:0 0 52px rgba(224,17,43,.34),0 4px 30px rgba(0,0,0,.8)}
+body.papermode .num{text-shadow:none}
+.unit{font-size:clamp(17px,2.3vw,38px);font-weight:700;color:var(--sub)}
+.metricrow{display:flex;gap:clamp(26px,7vw,108px);align-items:flex-end;flex-wrap:wrap;justify-content:center}
+.metricrow .cap{font-size:clamp(11px,1.1vw,17px);color:var(--sub);letter-spacing:.18em;
+  margin-bottom:1.4vh;text-align:center}
+.arrow{font-size:clamp(24px,3vw,46px);color:var(--accent);align-self:center}
+.badge{display:inline-block;margin-top:3vh;padding:.62em 1.6em;border:1px solid var(--accent);
+  border-radius:999px;font-weight:700;letter-spacing:.1em;font-size:clamp(13px,1.3vw,20px);
+  background:rgba(224,17,43,.10);backdrop-filter:blur(6px);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 24px rgba(224,17,43,0)}100%{box-shadow:0 0 0 0 rgba(224,17,43,0)}}
+
+/* ================= グラフ ================= */
+.chartwrap{width:min(1060px,88vw);margin-top:3vh}
+svg{width:100%;height:auto;overflow:visible}
+.axis{stroke:#333d4d;stroke-width:1}
+.gridline{stroke:#1a2130;stroke-width:1}
+.tick{fill:#77839a;font-size:13px;font-family:inherit}
+.plotline{fill:none;stroke:var(--accent);stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 14px rgba(224,17,43,.6))}
+.area{fill:url(#ag);opacity:0}
+.dot{fill:#fff;stroke:var(--accent);stroke-width:3;opacity:0}
+.dotlabel{fill:#fff;font-size:15px;font-weight:700;opacity:0;font-family:inherit}
+.marker{stroke:var(--sepia);stroke-width:1.5;stroke-dasharray:5 5;opacity:0}
+.markertext{fill:var(--sepia);font-size:14px;font-weight:700;opacity:0;font-family:inherit}
+
+/* ================= 比較バー ================= */
+.bars{display:flex;gap:clamp(26px,6vw,80px);align-items:flex-end;justify-content:center;
+  height:30vh;margin-top:3vh}
+.bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bar .stick{width:clamp(58px,8vw,120px);height:0;border-radius:8px 8px 0 0;transition:height 1.6s var(--ease)}
+.bar.income .stick{background:linear-gradient(180deg,#cfa76e,#5d4526)}
+.bar.car .stick{background:linear-gradient(180deg,var(--accent),#5e0913);box-shadow:0 0 44px rgba(224,17,43,.4)}
+.bar .val{font-size:clamp(18px,2.2vw,34px);font-weight:800;margin-bottom:1.2vh}
+.bar .lbl{font-size:clamp(11px,1.1vw,17px);color:var(--sub);margin-top:1.5vh;letter-spacing:.1em}
+
+/* ================= フロー・カード ================= */
+.flow{display:flex;align-items:center;gap:clamp(7px,1.5vw,20px);flex-wrap:wrap;
+  justify-content:center;margin-top:3.6vh}
+.node{padding:1.5vh 1.5vw;border:1px solid var(--line);border-radius:12px;
+  background:rgba(255,255,255,.045);backdrop-filter:blur(8px);
+  font-size:clamp(12px,1.25vw,20px);font-weight:700;white-space:nowrap;
+  opacity:0;transform:translateY(14px) scale(.96)}
+.scene.active .node{animation:pop .75s var(--ease) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.node.last{border-color:var(--accent);background:rgba(224,17,43,.16);box-shadow:0 0 34px rgba(224,17,43,.32)}
+.sep{color:var(--accent);font-size:clamp(14px,1.7vw,26px);opacity:0}
+.scene.active .sep{animation:pop .75s var(--ease) forwards}
+.plus{display:flex;align-items:center;gap:clamp(16px,4vw,56px);flex-wrap:wrap;
+  justify-content:center;margin-top:2.6vh}
+.card{border:1px solid var(--line);border-radius:16px;padding:3.2vh 2.6vw;text-align:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+  backdrop-filter:blur(10px);min-width:min(290px,74vw)}
+.card .k{font-size:clamp(10px,.95vw,14px);letter-spacing:.32em;color:var(--sepia);font-weight:700}
+.card .v{font-size:clamp(21px,2.6vw,42px);font-weight:800;margin-top:1.4vh}
+
+/* ================= 写真フレーム（ワイプ登場） ================= */
+.split{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(20px,4vw,60px);
+  align-items:center;width:min(1200px,92vw)}
+.frame{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:16/10;
+  box-shadow:0 30px 70px rgba(0,0,0,.72);border:1px solid rgba(201,160,106,.3);background:#0b0f16}
+.frame i{position:absolute;inset:0;background-size:cover;background-position:center 46%;
+  transform:scale(1.12);clip-path:inset(0 100% 0 0)}
+.scene.active .frame i{animation:wipe 1.7s var(--ease) .5s forwards,slowzoom 22s ease-out .5s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+@keyframes slowzoom{to{transform:scale(1)}}
+.frame b{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sepia);
+  box-shadow:0 0 26px var(--sepia)}
+.scene.active .frame b{animation:sweep 1.7s var(--ease) .5s forwards}
+@keyframes sweep{0%{left:0;opacity:1}99%{left:100%;opacity:1}100%{opacity:0}}
+.cap{font-size:clamp(10px,.82vw,13px);color:#6f7b90;margin-top:1.2vh;letter-spacing:.05em;line-height:1.75}
+body.papermode .cap{color:#7d7466}
+.stat{font-size:clamp(34px,5.4vw,88px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums;
+  color:#fff;text-shadow:0 0 40px rgba(201,160,106,.35)}
+.statsub{font-size:clamp(12px,1.15vw,18px);color:var(--sub);letter-spacing:.14em;margin-top:1vh}
+
+/* ================= カタログ紙面（カローラ・切り抜きなし） ================= */
+.plate{width:min(1180px,92vw);display:grid;grid-template-columns:1.35fr .65fr;
+  gap:clamp(18px,3vw,48px);align-items:center}
+.platephoto{position:relative;aspect-ratio:720/510;overflow:hidden;
+  border:1px solid rgba(120,100,70,.35);
+  box-shadow:0 26px 60px rgba(90,74,48,.34),inset 0 0 60px rgba(150,130,95,.18);
+  background:#f3efe6}
+.platephoto i{position:absolute;inset:0;background-size:cover;background-position:center;
+  mix-blend-mode:multiply;filter:sepia(.34) contrast(1.06);transform:scale(1.05);opacity:0}
+.scene.active .platephoto i{animation:fadezoom 2.4s var(--ease) .45s forwards}
+@keyframes fadezoom{to{opacity:1;transform:scale(1)}}
+.platephoto .stamp{position:absolute;right:2.4%;bottom:4%;
+  font-size:clamp(9px,.78vw,12px);letter-spacing:.24em;color:#8a7a5e;font-weight:700}
+.spec{border-top:1px solid rgba(120,100,70,.4);border-bottom:1px solid rgba(120,100,70,.4);
+  padding:2vh 0;margin-top:2.4vh}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:1.1vh 1.4vw;font-size:clamp(11px,1.05vw,16px)}
+.spec dt{color:#8a7a5e;letter-spacing:.14em;font-weight:700;white-space:nowrap}
+.spec dd{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.plate h2{color:var(--ink)}
+
+/* ================= 1966→2026 ワイプ比較 ================= */
+.compare{position:relative;width:min(1180px,92vw);aspect-ratio:16/10;overflow:hidden;
+  border-radius:3px;border:1px solid rgba(201,160,106,.32);
+  box-shadow:0 34px 80px rgba(0,0,0,.75);background:#0b0f16;cursor:ew-resize}
+.compare .layer{position:absolute;inset:0;background-size:cover;background-position:center}
+.compare .after{clip-path:inset(0 0 0 50%)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;
+  box-shadow:0 0 26px rgba(255,255,255,.85);z-index:3;transform:translateX(-1px)}
+.compare .handle:after{content:"◀ ▶";position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);background:rgba(10,12,16,.82);border:1px solid rgba(255,255,255,.5);
+  border-radius:999px;padding:.5em .85em;font-size:clamp(9px,.85vw,13px);letter-spacing:.08em;
+  font-weight:700;white-space:nowrap;color:#fff}
+.compare .lab{position:absolute;bottom:0;padding:1.2vh 1.4vw;font-size:clamp(10px,.95vw,15px);
+  font-weight:700;letter-spacing:.16em;z-index:2;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.compare .lab.l{left:0}.compare .lab.r{right:0}
+.compare .lab .s{display:block;font-size:.72em;letter-spacing:.1em;color:#c9d2df;
+  font-weight:400;margin-top:.4em}
+.bignum{font-size:clamp(46px,8vw,140px);font-weight:800;line-height:1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+/* ================= 年表レール ================= */
+.rail{display:flex;width:min(1080px,92vw);margin-top:4vh;
+  border-top:1px solid var(--line);padding-top:2.4vh}
+.rail .stop{flex:1;position:relative;padding:0 1vw;text-align:center;opacity:0;transform:translateY(12px)}
+.scene.active .rail .stop{animation:pop .8s var(--ease) forwards}
+.rail .stop:before{content:"";position:absolute;top:-2.4vh;left:50%;width:9px;height:9px;
+  border-radius:50%;background:var(--sepia);transform:translate(-50%,-50%)}
+.rail .stop.hot:before{background:var(--accent);box-shadow:0 0 18px var(--accent)}
+.rail .y{font-size:clamp(13px,1.35vw,21px);font-weight:800;color:#fff}
+.rail .t{font-size:clamp(10px,.92vw,14px);color:var(--sub);margin-top:.7vh;line-height:1.6}
+
+/* ================= UI ================= */
+#hud{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:14px;
+  padding:13px 22px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.78));
+  font-size:12px;color:#98a3b3;letter-spacing:.08em}
+body.papermode #hud{background:linear-gradient(180deg,transparent,rgba(90,76,52,.55));color:#efe9dd}
+#hud button{background:rgba(255,255,255,.08);color:#f4f6f9;border:1px solid rgba(255,255,255,.16);
+  border-radius:8px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;transition:.2s}
+#hud button:hover{background:var(--accent);border-color:var(--accent)}
+#counter{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:700;color:#fff}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:30;
+  background:linear-gradient(90deg,var(--sepia),var(--accent));transition:width .45s linear}
+#brand{position:fixed;top:16px;left:24px;z-index:20;font-size:11px;letter-spacing:.38em;
+  color:#5f6a7d;font-weight:700}
+#hint{position:fixed;top:16px;right:24px;z-index:20;font-size:11px;letter-spacing:.14em;color:#5f6a7d}
+body.papermode #brand,body.papermode #hint{color:#a1957e}
+@media(max-width:760px){
+  .split,.plate{grid-template-columns:1fr}
+  #hud{font-size:10px;gap:7px;padding:10px 12px}#hud button{padding:7px 10px}
+  #brand,#hint{display:none}
+  .rail{flex-wrap:wrap}.rail .stop{flex:0 0 50%;margin-bottom:2vh}
+  #car{width:min(62vw,420px)}
+}
+
+/* ================================================================
+   [ADD-2] 1966年章　実写真（Base64内包・完全オフライン）
+   ※ 序章01〜17のCSSは一切変更していません（追記のみ）
+   ================================================================ */
+:root{
+  --y66-gate:url('assets/images/image_05.jpg');
+  --y66-airw:url('assets/images/image_06.jpg');
+  --y66-airn:url('assets/images/image_07.jpg');
+  --y66-line:url('assets/images/image_08.jpg');
+  --y66-one:url('assets/images/image_09.jpg');
+  --y66-car:url('assets/images/image_10.jpg');
+}
+
+/* --- 全面背景写真（シーン内で完結／演出エンジン非改変） --- */
+.bleed66{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center 50%;
+  transform:scale(1.12);opacity:0;filter:grayscale(1) contrast(1.1) brightness(.5)}
+.scene.active .bleed66{animation:bleedIn 2s var(--ease) forwards,slowzoom 26s ease-out forwards}
+@keyframes bleedIn{to{opacity:1}}
+.bleed66:after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 100% at 50% 32%,rgba(12,18,28,.3) 0%,rgba(6,8,12,.94) 72%)}
+/* --- 橋渡し（1966スタンプ＋縦年表） --- */
+.bridge{width:min(1240px,92vw);display:grid;grid-template-columns:.78fr 1.22fr;
+  gap:clamp(24px,5vw,72px);align-items:center}
+.bridge .stamp{font-size:clamp(96px,17vw,250px);font-weight:900;line-height:.76;
+  letter-spacing:-.07em;color:transparent;-webkit-text-stroke:2px rgba(224,17,43,.82);
+  text-shadow:0 0 80px rgba(224,17,43,.16)}
+.bridge .stampsub{margin-top:2.2vh;font-size:clamp(11px,1.05vw,16px);color:var(--sepia);
+  letter-spacing:.3em;font-weight:800;text-align:center}
+.tl{position:relative;border-left:2px solid var(--accent);padding-left:clamp(22px,3vw,46px)}
+.tl .ev{position:relative;margin:0 0 clamp(15px,2.8vh,32px);opacity:0;transform:translateX(26px)}
+.scene.active .tl .ev{animation:tlIn .72s var(--ease) forwards}
+@keyframes tlIn{to{opacity:1;transform:none}}
+.tl .ev:before{content:"";position:absolute;left:calc(-1 * clamp(22px,3vw,46px) - 7px);top:.45em;
+  width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent)}
+.tl .ev.dim:before{background:var(--sepia);box-shadow:0 0 14px rgba(201,160,106,.7)}
+.tl time{display:block;color:var(--sepia);font-size:clamp(11px,.98vw,15px);
+  letter-spacing:.2em;font-weight:800}
+.tl h3{font-size:clamp(18px,2.3vw,35px);line-height:1.32;margin:.5vh 0 0;font-weight:800}
+/* --- 完成ゲート 大判（唯一のカラー写真を主役に） --- */
+.gate{width:min(1240px,92vw);display:grid;grid-template-columns:1.3fr .7fr;
+  gap:clamp(22px,4vw,58px);align-items:center}
+.gatephoto{position:relative;aspect-ratio:724/482;overflow:hidden;border-radius:3px;
+  border:1px solid rgba(201,160,106,.34);box-shadow:0 34px 84px rgba(0,0,0,.76)}
+.gatephoto i{position:absolute;inset:0;background-size:cover;background-position:center 52%;
+  transform:scale(1.13);clip-path:inset(0 100% 0 0)}
+.scene.active .gatephoto i{animation:wipe 1.8s var(--ease) .45s forwards,
+  slowzoom 26s ease-out .45s forwards}
+.gatephoto b{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sepia);
+  box-shadow:0 0 26px var(--sepia)}
+.scene.active .gatephoto b{animation:sweep 1.8s var(--ease) .45s forwards}
+/* --- 縦写真（1号車ラインオフ） --- */
+.duo{width:min(1240px,92vw);display:grid;grid-template-columns:.86fr 1.14fr;
+  gap:clamp(22px,4vw,60px);align-items:center}
+.tallphoto{position:relative;aspect-ratio:640/929;max-height:70vh;margin:0 auto;overflow:hidden;
+  border-radius:3px;border:1px solid rgba(201,160,106,.32);box-shadow:0 30px 74px rgba(0,0,0,.74)}
+.tallphoto i{position:absolute;inset:0;background-size:cover;background-position:center 46%;
+  transform:scale(1.12);clip-path:inset(100% 0 0 0);filter:grayscale(1) contrast(1.08)}
+.scene.active .tallphoto i{animation:wipeUp 1.9s var(--ease) .5s forwards,
+  slowzoom 26s ease-out .5s forwards}
+@keyframes wipeUp{to{clip-path:inset(0 0 0 0)}}
+/* --- 年表 1966年 写真グリッド --- */
+.y66{width:min(1300px,94vw)}
+.head66{display:flex;align-items:flex-end;gap:clamp(16px,3vw,46px);flex-wrap:wrap}
+.huge66{font-size:clamp(56px,9.2vw,148px);font-weight:900;line-height:.84;letter-spacing:-.045em;
+  color:var(--accent);text-shadow:0 0 60px rgba(224,17,43,.34);font-variant-numeric:tabular-nums}
+.grid66{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(9px,1.2vw,17px);margin-top:3.2vh}
+.sh{position:relative;overflow:hidden;border-radius:3px;background:#0b0f16;aspect-ratio:4/3;
+  border:1px solid rgba(201,160,106,.3);box-shadow:0 20px 50px rgba(0,0,0,.66);
+  opacity:0;transform:translateY(20px)}
+.scene.active .sh{animation:shIn .85s var(--ease) forwards}
+@keyframes shIn{to{opacity:1;transform:none}}
+.sh i{position:absolute;inset:0;background-size:cover;background-position:center 50%;
+  transform:scale(1.09);filter:grayscale(1) contrast(1.06)}
+.scene.active .sh i{animation:slowzoom 28s ease-out forwards}
+.sh.color i{filter:none}
+.sh:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 44%,rgba(4,6,10,.92))}
+.sh .tag{position:absolute;left:12px;right:12px;bottom:11px;z-index:2;
+  font-size:clamp(10px,.84vw,13px);letter-spacing:.12em;font-weight:800;color:#eef1f6;
+  line-height:1.6;text-shadow:0 2px 12px rgba(0,0,0,.95)}
+.sh .tag small{display:block;font-weight:700;color:var(--sepia);letter-spacing:.2em;
+  font-size:.8em;margin-bottom:.25em}
+.enter66{display:inline-block;margin-top:3vh;padding:.8em 1.7em;border:1px solid var(--accent);
+  border-radius:999px;background:rgba(224,17,43,.14);font-weight:800;letter-spacing:.12em;
+  font-size:clamp(12px,1.18vw,18px);backdrop-filter:blur(6px);
+  animation:pulse 2.6s ease-out infinite}
+@media(max-width:900px){
+  .bridge,.gate,.duo{grid-template-columns:1fr}
+  .bridge .stamp{text-align:center}
+  .grid66{grid-template-columns:1fr 1fr}
+  .tallphoto{max-height:44vh}
+}
+
+/* ================================================================
+   [ADD-3] 1967年章  ドキュメンタリー・パート
+   ※ 序章01〜17 / 1966年章18〜22 のCSSは一切変更していません（追記のみ）
+   ================================================================ */
+:root{
+  --y67-gt:url('assets/images/image_11.jpg');
+  --y67-pub:url('assets/images/image_12.jpg');
+  --y67-air:url('assets/images/image_13.jpg');
+  --y67-cor:url('assets/images/image_14.jpg');
+}
+
+/* --- 章の区切り（黒みへ落とす静かな扉） --- */
+.chapmark{text-align:center}
+.chapmark .no{font-size:clamp(10px,.9vw,14px);letter-spacing:.5em;color:var(--sepia);font-weight:800}
+.chapmark .yr{font-size:clamp(70px,13vw,210px);font-weight:900;line-height:.9;letter-spacing:-.04em;
+  color:transparent;-webkit-text-stroke:2px rgba(201,160,106,.8);
+  text-shadow:0 0 90px rgba(201,160,106,.16);font-variant-numeric:tabular-nums;margin-top:1.6vh}
+.chapmark .ttl{font-size:clamp(17px,2.2vw,34px);font-weight:800;margin-top:2.6vh;line-height:1.4}
+
+/* --- ナレーション（字幕風・一行ずつ立ち上がる） --- */
+.narr{max-width:40em;margin:0 auto;text-align:center}
+.narr p{font-size:clamp(15px,1.62vw,27px);line-height:2.05;color:#dfe5ee;
+  opacity:0;transform:translateY(16px);text-shadow:0 3px 30px rgba(0,0,0,.9);margin-bottom:1.4vh}
+.scene.active .narr p{animation:rise 1.05s var(--ease) forwards}
+body.papermode .narr p{color:#4d453a;text-shadow:none}
+
+/* --- 横長の車両カット（ワイプ登場） --- */
+.widecar{position:relative;width:min(1240px,92vw);aspect-ratio:1920/778;overflow:hidden;
+  border-radius:3px;border:1px solid rgba(201,160,106,.3);
+  box-shadow:0 30px 74px rgba(0,0,0,.74);background:#0b0f16;margin:0 auto}
+.widecar i{position:absolute;inset:0;background-size:cover;background-position:center 52%;
+  transform:scale(1.1);clip-path:inset(0 100% 0 0)}
+.scene.active .widecar i{animation:wipe 1.8s var(--ease) .45s forwards,
+  slowzoom 26s ease-out .45s forwards}
+.widecar b{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sepia);
+  box-shadow:0 0 26px var(--sepia)}
+.scene.active .widecar b{animation:sweep 1.8s var(--ease) .45s forwards}
+
+/* --- カタログ紙面（横長・白背景の車両写真用） --- */
+.platewide{position:relative;aspect-ratio:3/2;overflow:hidden;
+  border:1px solid rgba(120,100,70,.35);
+  box-shadow:0 26px 60px rgba(90,74,48,.34),inset 0 0 60px rgba(150,130,95,.18);
+  background:#f3efe6}
+.platewide i{position:absolute;inset:0;background-size:contain;background-repeat:no-repeat;
+  background-position:center;mix-blend-mode:multiply;filter:sepia(.3) contrast(1.05);
+  transform:scale(1.04);opacity:0}
+.scene.active .platewide i{animation:fadezoom 2.4s var(--ease) .45s forwards}
+.platewide .stamp{position:absolute;right:2.4%;bottom:4%;
+  font-size:clamp(9px,.78vw,12px);letter-spacing:.24em;color:#8a7a5e;font-weight:700}
+
+/* --- 未確認事項の明示（ドキュメンタリーとしての誠実さ） --- */
+.todo{display:inline-block;margin-top:2.2vh;padding:.5em 1.1em;border:1px dashed rgba(201,160,106,.6);
+  border-radius:6px;font-size:clamp(10px,.86vw,13px);letter-spacing:.1em;color:var(--sepia);
+  font-weight:700;line-height:1.7}
+
+/* --- 1967 年表グリッド --- */
+.y67{width:min(1300px,94vw)}
+.huge67{font-size:clamp(56px,9.2vw,148px);font-weight:900;line-height:.84;letter-spacing:-.045em;
+  color:var(--sepia);text-shadow:0 0 60px rgba(201,160,106,.3);font-variant-numeric:tabular-nums}
+.grid67{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(9px,1.2vw,17px);margin-top:3.2vh}
+.enter67{display:inline-block;margin-top:3vh;padding:.8em 1.7em;border:1px solid var(--sepia);
+  border-radius:999px;background:rgba(201,160,106,.14);font-weight:800;letter-spacing:.12em;
+  font-size:clamp(12px,1.18vw,18px);backdrop-filter:blur(6px);
+  animation:pulse 2.6s ease-out infinite}
+@media(max-width:900px){ .grid67{grid-template-columns:1fr 1fr} }
+
+/* --- 画面高さが低い環境：写真の縦横比(4:3)は保ち、全体を縮めて上段文字を切らさない --- */
+@media(max-height:900px){
+  .scene{padding-top:5.5vh;padding-bottom:6.5vh}
+  .grid66,.grid67{margin-top:2vh}
+  .y66,.y67{width:min(1120px,88vw)}
+  .huge66,.huge67{font-size:clamp(52px,8.4vw,132px)}
+}
+@media(max-height:720px){
+  .scene{padding-top:4vh;padding-bottom:5.5vh}
+  .grid66,.grid67{margin-top:1.4vh}
+  .y66,.y67{width:min(960px,80vw)}
+  .head66{gap:clamp(12px,2vw,30px)}
+}
+
+/* --- 工場全景（航空写真・大判ワイプ） --- */
+.airshot{position:relative;width:min(1300px,94vw);aspect-ratio:2048/1357;overflow:hidden;
+  border-radius:3px;border:1px solid rgba(201,160,106,.32);
+  box-shadow:0 34px 84px rgba(0,0,0,.78);background:#0b0f16;margin:0 auto}
+.airshot i{position:absolute;inset:0;background-size:cover;background-position:center 52%;
+  transform:scale(1.1);clip-path:inset(0 100% 0 0);filter:grayscale(1) contrast(1.08)}
+.scene.active .airshot i{animation:wipe 2s var(--ease) .45s forwards,
+  slowzoom 30s ease-out .45s forwards}
+.airshot b{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sepia);
+  box-shadow:0 0 26px var(--sepia)}
+.scene.active .airshot b{animation:sweep 2s var(--ease) .45s forwards}
+.airshot .ovl{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:3vh 2.4vw 2.4vh;
+  background:linear-gradient(180deg,transparent,rgba(4,6,10,.88));text-align:left}
+.airshot .ovl .t{font-size:clamp(15px,1.9vw,30px);font-weight:800;line-height:1.4;
+  text-shadow:0 2px 16px rgba(0,0,0,.95)}
+.airshot .ovl .s{font-size:clamp(10px,.9vw,14px);color:var(--sepia);letter-spacing:.22em;
+  font-weight:800;margin-bottom:.8vh}
+
+/* ================================================================
+   [ADD-5] 序章オープニング  土埃（風に流れる粉塵）
+   ================================================================ */
+/* 畑の土から舞い上がる粗い塵：横へ流れる */
+#dustfield{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:0;
+  transition:opacity 2.2s var(--ease)}
+body.dustboost #dustfield{opacity:1}
+.grit{position:absolute;border-radius:50%;background:rgba(226,206,168,.75);
+  filter:blur(.3px);animation:blow linear infinite}
+@keyframes blow{
+  0%{transform:translate3d(-12vw,0,0) scale(.7);opacity:0}
+  10%{opacity:.9}
+  55%{transform:translate3d(48vw,-7vh,0) scale(1.05);opacity:.75}
+  90%{opacity:.35}
+  100%{transform:translate3d(116vw,-15vh,0) scale(1.2);opacity:0}}
+/* 遠景にかかる砂塵の薄い帯 */
+.haze{position:absolute;left:-20%;right:-20%;height:22vh;
+  background:linear-gradient(90deg,transparent,rgba(214,192,152,.16) 35%,rgba(214,192,152,.10) 60%,transparent);
+  filter:blur(22px);animation:hazeflow linear infinite}
+@keyframes hazeflow{
+  0%{transform:translateX(-30%);opacity:0}
+  18%{opacity:.9}82%{opacity:.7}
+  100%{transform:translateX(30%);opacity:0}}
+/* 序章オープニングは既存の粉塵も濃くする */
+body.dustboost #dust{opacity:.85}
+body.dustboost #grain{opacity:.26}
+
+/* ================================================================
+   [ADD-6] 1968年章  4車種体制／価格帯グラフ
+   ================================================================ */
+:root{
+  --y68-spr:url('assets/images/image_15.jpg');
+  --y68-line:url('assets/images/image_16.jpg');
+  --y68-minit:url('assets/images/image_17.jpg');
+  --y68-miniv:url('assets/images/image_18.jpg');
+}
+
+/* --- 価格帯の横棒グラフ（ドキュメンタリー調） --- */
+.pricechart{width:min(1120px,92vw);margin:3vh auto 0}
+.prow{display:grid;grid-template-columns:clamp(88px,10vw,150px) 1fr clamp(76px,8vw,120px);
+  align-items:center;gap:clamp(10px,1.6vw,26px);margin-bottom:clamp(10px,1.9vh,22px);
+  opacity:0;transform:translateX(-22px)}
+.prow.on{animation:prowIn .8s var(--ease) forwards}
+@keyframes prowIn{to{opacity:1;transform:none}}
+.prow .nm{text-align:right;font-weight:800;font-size:clamp(12px,1.3vw,21px);line-height:1.3}
+.prow .nm small{display:block;font-weight:700;color:var(--sepia);letter-spacing:.14em;
+  font-size:.66em;margin-top:.3em}
+.prow .track{position:relative;height:clamp(20px,3.1vh,36px);border-radius:3px;
+  background:rgba(255,255,255,.045);overflow:hidden}
+.prow .fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:3px;
+  transition:width 1.5s cubic-bezier(.16,.84,.32,1)}
+.prow.truck  .fill{background:linear-gradient(90deg,#4d5f77,#8ea3bd)}
+.prow.small  .fill{background:linear-gradient(90deg,#6b5a3a,#cfa76e)}
+.prow.main   .fill{background:linear-gradient(90deg,#8c0f20,var(--accent));
+  box-shadow:0 0 30px rgba(224,17,43,.42)}
+.prow.sport  .fill{background:linear-gradient(90deg,#b3132c,#ff6d80);
+  box-shadow:0 0 34px rgba(255,109,128,.34)}
+.prow .val{font-weight:800;font-variant-numeric:tabular-nums;
+  font-size:clamp(13px,1.45vw,24px);text-align:left}
+.prow .val em{font-style:normal;font-size:.62em;color:var(--sub);margin-left:.25em}
+
+/* 平均年収の基準線（棒グラフのトラック列に重ねる） */
+.pricechart{position:relative}
+.incomeline{position:absolute;inset:0;pointer-events:none;
+  display:grid;grid-template-columns:clamp(88px,10vw,150px) 1fr clamp(76px,8vw,120px);
+  gap:clamp(10px,1.6vw,26px)}
+.incomeline .mid{position:relative;grid-column:2}
+.incomeline .bar{position:absolute;top:-.6vh;bottom:-.6vh;width:0;
+  border-left:2px dashed var(--sepia);opacity:0}
+.incomeline.on .bar{animation:fadeIn 1s ease 2.9s forwards}
+@keyframes fadeIn{to{opacity:.9}}
+.incomeline .lb{position:absolute;bottom:-5.2vh;transform:translateX(-50%);white-space:nowrap;
+  font-size:clamp(9px,.84vw,13px);color:var(--sepia);font-weight:800;letter-spacing:.1em;
+  opacity:0;text-align:center;line-height:1.6}
+.incomeline.on .lb{animation:fadeIn 1s ease 3.2s forwards}
+
+/* --- 4車種のサムネイル列 --- */
+.lineup{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.2vw,18px);
+  width:min(1240px,93vw);margin-top:3vh}
+.lu{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:3px;
+  border:1px solid rgba(201,160,106,.3);background:#0e1219;
+  box-shadow:0 18px 44px rgba(0,0,0,.6);opacity:0;transform:translateY(18px)}
+.scene.active .lu{animation:shIn .85s var(--ease) forwards}
+.lu i{position:absolute;inset:0;background-size:contain;background-repeat:no-repeat;
+  background-position:center;transform:scale(1.02)}
+.lu.cover i{background-size:cover}
+.lu:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 46%,rgba(4,6,10,.92))}
+.lu .tag{position:absolute;left:10px;right:10px;bottom:9px;z-index:2;
+  font-size:clamp(9px,.82vw,13px);font-weight:800;color:#eef1f6;line-height:1.55;
+  text-shadow:0 2px 12px rgba(0,0,0,.95)}
+.lu .tag small{display:block;font-weight:700;color:var(--sepia);letter-spacing:.18em;
+  font-size:.78em;margin-bottom:.22em}
+.lu.none{display:flex;align-items:center;justify-content:center;
+  border-style:dashed;border-color:rgba(201,160,106,.45)}
+.lu.none .ph{font-size:clamp(10px,.9vw,14px);color:var(--sepia);font-weight:800;
+  letter-spacing:.12em;text-align:center;line-height:1.9;padding:0 1em}
+@media(max-width:900px){
+  .lineup{grid-template-columns:1fr 1fr}
+  .prow{grid-template-columns:clamp(70px,20vw,110px) 1fr clamp(62px,16vw,90px)}
+}
+
+/* --- スプリンター（背景透過・影を落として置く） --- */
+.lu.trans i{background-size:contain;background-position:center;filter:none}
+.lu.trans{background:#efeae0}
+.sh.trans i{background-size:contain;background-position:center;filter:none}
+.sh.trans{background:#efeae0}
+/* 大判の1台見せ（カタログ写真をフレームに収める） */
+.solocar{position:relative;width:min(1100px,90vw);aspect-ratio:990/636;margin:0 auto;
+  overflow:hidden;border-radius:3px;background:#f3efe6;
+  border:1px solid rgba(201,160,106,.34);box-shadow:0 30px 74px rgba(0,0,0,.72);
+  opacity:0;transform:translateY(16px)}
+.solocar:before{content:"";position:absolute;inset:0;
+  background-image:var(--y68-spr);background-size:contain;background-repeat:no-repeat;
+  background-position:center;transform:scale(1.04)}
+.scene.active .solocar{animation:soloIn 1.6s var(--ease) .45s forwards}
+.scene.active .solocar:before{animation:slowzoom 24s ease-out .45s forwards}
+@keyframes soloIn{to{opacity:1;transform:none}}
+
+/* ================================================================
+   [ADD-8] 音声ナレーション（Web Speech API）UI
+   ================================================================ */
+#btnVoice.on{background:var(--accent);border-color:var(--accent);color:#fff}
+#btnVoice.on:after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;
+  border-radius:50%;background:#fff;vertical-align:middle;animation:vpulse 1.3s ease-in-out infinite}
+@keyframes vpulse{0%,100%{opacity:.25}50%{opacity:1}}
+/* 読み上げ中の行を明るく */
+.narr p.reading{color:#fff;text-shadow:0 0 26px rgba(224,17,43,.4),0 3px 30px rgba(0,0,0,.9)}
+body.papermode .narr p.reading{color:#1f1a14;text-shadow:none}
+
+
+[hidden]{display:none!important}
+#startOverlay{position:fixed;inset:0;z-index:200000;background:rgba(4,7,12,.88);backdrop-filter:blur(10px);display:grid;place-items:center;padding:24px}
+.startCard{text-align:center;max-width:720px;color:#f4f6f9}.startCard h2{font-size:clamp(30px,5vw,64px);line-height:1.4;margin:24px 0}.startCard p{line-height:1.9;color:#bbc2cd}.startLabel{letter-spacing:.18em}
+#startFilm{margin:24px 0;padding:18px 40px;border:1px solid #e0112b;border-radius:8px;background:#c80f27;color:white;font-size:20px;cursor:pointer}.startHelp{font-size:13px}
+#voiceMessage{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:100001;max-width:85vw;color:white;background:#52222b;border-radius:8px}#voiceStatus:not([hidden]){display:inline-block;padding:12px}#retryVoice{margin:8px;padding:8px 14px}
+.narr p{transition:opacity .35s,transform .35s}
+#hint{top:62px;right:20px}
+</style>
+</head>
+<body>
+
+<div id="photoLayer"><div class="ph" id="ph"></div></div>
+<div id="paper"></div>
+<div id="tint"></div>
+<div id="wash"></div>
+<div id="vignette"></div>
+<div id="dust"></div>
+<div id="dustfield"></div>
+<div id="grain"></div>
+<div id="progress"></div>
+<div id="brand">TAKAOKA PLANT 60th ANNIVERSARY</div>
+<div id="hint">← → / SPACE ／ F=全画面</div>
+
+<div id="road"></div>
+<div id="car"></div>
+<div id="stage"></div>
+<div id="startOverlay"><div class="startCard"><p class="startLabel">高岡工場60周年記念史</p><h2>売れる未来を信じて<br>造った。</h2><p>ナレーション・BGM付きで再生します。</p><button id="startFilm">▶ はじめから再生</button><p class="startHelp">音声・BGMは個別に切り替えられます。<br>SPACE：一時停止 ／ ← →：場面移動 ／ F：全画面</p></div></div>
+<div id="voiceMessage"><span id="voiceStatus" role="status" hidden></span><button id="retryVoice" hidden>再試行</button></div>
+
+<div id="hud">
+  <button id="btnPrev">◀ 前へ</button>
+  <button id="btnPlay">▶ 自動再生</button>
+  <button id="btnNext">次へ ▶</button>
+  <span>速度 <button id="btnSpeed">×1.0</button></span>
+  <button id="btnVoice" title="ナレーション音声の再生／停止">🔈 音声OFF</button>
+  <span id="counter">01 / 39</span>
+</div>
+
+<script>
+/* ================================================================
+   [1] データ ―― ここだけ編集すれば内容が差し替わります
+   ================================================================ */
+const SALES = [
+  {year:1955,v:27},{year:1957,v:34},{year:1960,v:53},
+  {year:1963,v:95},{year:1964,v:135},{year:1965,v:187},{year:1966,v:229}
+];
+
+/* 画像はCSS変数として <style> 冒頭に埋め込み済み
+   --p-site : 建設中の高岡工場を望む（昭和41年ごろ／イメージイラスト・角田伸二 作成）
+   --p-1966 : 1966年 高岡工場 航空写真
+   --p-now  : 現在の高岡工場 航空写真
+   --p-hero : 初代カローラ 正面（切り抜きなし・紙面素材）
+   --p-side : 初代カローラ 側面（透過・走行アニメーション用）        */
+
+/* ================================================================
+   [2] シーン定義
+      bg  : 'site' | '1966' | 'now' | 'dim' | 'none' | 'paper'
+      car : 'drive' | 'park' | 'slow'   ※すべて右から左へ走行
+   ================================================================ */
+const SCENES = [
+
+/* 01 タイトル */
+{hold:10000,bg:'illust',dust:true,
+ wash:'radial-gradient(130% 110% at 50% 8%,rgba(10,16,24,.06) 0%,rgba(6,8,12,.60) 62%,rgba(4,6,10,.90) 100%)',html:`
+  <div class="center">
+    <div class="eyebrow blur d1">高岡工場60周年記念史 ｜ 序章</div>
+    <h1 class="rise d2 shadowtext">売れる未来を信じて<br>造った。</h1>
+    <div class="rule"></div>
+    <p class="lead rise d4 shadowtext">なぜ、このタイミングで高岡工場をつくったのか。<br>
+      日本の変化を読み、まだ売れていないクルマと、<br>まだ存在しない工場に賭けた。</p>
+    <div class="note rise d6">背景：昭和41年ごろの西岡町。畑仕事の手を止め、建設中の高岡工場を見上げる人々。<br>
+      （イメージイラスト　作成：角田伸二／史実写真ではありません）</div>
+  </div>`},
+
+/* 02 1965 */
+{hold:5600,bg:'dim',html:`
+  <div class="center">
+    <div class="eyebrow blur d1">PROLOGUE</div>
+    <div class="year rise d2">1965</div>
+    <h2 class="rise d3 shadowtext" style="margin-top:3vh">日本は、<br>大きく変わろうとしていた。</h2>
+    <p class="lead rise d5">すべての始まりは、工場ではなかった。</p>
+  </div>`},
+
+/* 03 所得 */
+{hold:7000,bg:'none',anim:'counters',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">01 ｜ 暮らしが変わり始めた</div>
+    <h2 class="rise d2">所得が伸び、憧れが現実へ近づく。</h2>
+    <div class="metricrow rise d3" style="margin-top:5vh">
+      <div><div class="cap">1965年 平均年収</div>
+        <div class="metric"><span class="num" data-count="44.8" data-dec="1" style="color:#9aa5b4">0</span><span class="unit">万円</span></div></div>
+      <div class="arrow">→</div>
+      <div><div class="cap">1966年 平均年収</div>
+        <div class="metric"><span class="num" data-count="48.7" data-dec="1">0</span><span class="unit">万円</span></div></div>
+    </div>
+    <p class="lead rise d5">人々の購買力が、上がり始めた。</p>
+    <div class="note rise d6">出典：賃金構造基本統計調査を基にした年次統計（既存資料記載値）</div>
+  </div>`},
+
+/* 04 折れ線グラフ */
+{hold:11500,bg:'none',anim:'chart',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">02 ｜ クルマが社会へ広がる</div>
+    <h2 class="rise d2">市場は、すでに動き始めていた。</h2>
+    <div class="chartwrap rise d3" id="chartHost"></div>
+    <div class="note rise d4">国内新車販売台数（全メーカー合計・企画用概数）。正式版ではJAMA年次データと定義を再照合する。</div>
+  </div>`},
+
+/* 05 モータリゼーション */
+{hold:6200,bg:'dim',anim:'counters',html:`
+  <div class="center">
+    <div class="eyebrow red rise d1">02 ｜ モータリゼーション</div>
+    <div class="metricrow rise d2" style="margin-top:2vh">
+      <div><div class="cap">1955年</div>
+        <div class="metric"><span class="num" data-count="27" data-dec="0" style="color:#8892a3">0</span><span class="unit">万台</span></div></div>
+      <div class="arrow">→</div>
+      <div><div class="cap">1966年</div>
+        <div class="metric"><span class="num" data-count="229" data-dec="0">0</span><span class="unit">万台</span></div></div>
+    </div>
+    <div class="badge rise d4">11年間で 約8.5倍</div>
+    <p class="lead rise d5">「一家に一台」はまだ先。しかし、伸びは明確だった。</p>
+  </div>`},
+
+/* 06 カローラ カタログ紙面 */
+{hold:10000,bg:'paper',html:`
+  <div class="plate">
+    <div>
+      <div class="platephoto"><i style="background-image:var(--p-hero)"></i>
+        <span class="stamp">TOYOTA COROLLA 1100 STANDARD ／ 1966</span></div>
+    </div>
+    <div class="left">
+      <div class="eyebrow rise d1">03 ｜ まだ存在しないクルマ</div>
+      <h2 class="rise d2" style="font-size:clamp(20px,2.6vw,40px)">カローラ、<br>登場。</h2>
+      <div class="spec rise d4">
+        <dl>
+          <dt>発表</dt><dd>1966年11月</dd>
+          <dt>高岡工場 生産開始</dt><dd>1966年9月24日</dd>
+          <dt>東京価格</dt><dd>432,000円</dd>
+          <dt>当時の平均年収</dt><dd>486,500円</dd>
+        </dl>
+      </div>
+      <p class="lead rise d5" style="font-size:clamp(13px,1.25vw,19px);margin-top:2.4vh">
+        1963年ごろ開発が始まった、新しい大衆車。<br>
+        この時点ではまだ市場に存在せず、<br>成功の保証もどこにもなかった。</p>
+    </div>
+  </div>`},
+
+/* 07 年収と価格 */
+{hold:9500,bg:'none',anim:'bars',car:'park',html:`
+  <div class="center" style="width:100%;transform:translateY(-8vh)">
+    <div class="eyebrow red rise d1">04 ｜ 年収と初代カローラ価格</div>
+    <h2 class="rise d2">それでも、クルマは高かった。</h2>
+    <div class="bars rise d3">
+      <div class="bar income"><div class="val">48.7万円</div><div class="stick" data-h="100"></div><div class="lbl">1966年 平均年収</div></div>
+      <div class="bar car"><div class="val">43.2万円</div><div class="stick" data-h="88.8"></div><div class="lbl">カローラ 1100 スタンダード</div></div>
+    </div>
+    <div class="badge rise d5">車両価格は年収の約89％ ― ほぼ年収1年分</div>
+    <div class="note rise d6">1966年平均年収 486,500円／カローラ・スタンダード東京価格 432,000円（既存資料記載値）</div>
+  </div>`},
+
+/* 08 商品＋工場 */
+{hold:8200,bg:'none',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">05 ｜ 商品だけでは時代を支えられない</div>
+    <h2 class="rise d2">必要だったのは、大量につくる能力。</h2>
+    <div class="plus">
+      <div class="card rise d3"><div class="k">NEW PRODUCT</div><div class="v">新しい大衆車<br>カローラ</div></div>
+      <div class="arrow rise d4" style="font-size:clamp(30px,4vw,60px)">＋</div>
+      <div class="card rise d5"><div class="k">NEW CAPACITY</div><div class="v">新しい量産能力<br>新工場</div></div>
+    </div>
+    <p class="lead rise d6">商品と工場を、同時に準備する。</p>
+  </div>`},
+
+/* 09 用地125万m² */
+{hold:11000,bg:'none',anim:'counters',html:`
+  <div class="split">
+    <div class="left">
+      <div class="eyebrow red rise d1">06 ｜ 選ばれたのは、丘陵地だった</div>
+      <h2 class="rise d2" style="line-height:1.3">土を掘り、丘を削る。<br>工場より先に、土地があった。</h2>
+      <div style="margin-top:4vh" class="rise d4">
+        <div class="stat"><span class="num" data-count="125" data-dec="0" style="font-size:inherit;text-shadow:none">0</span> <span style="font-size:.4em;font-weight:700">万m²</span></div>
+        <div class="statsub">高岡町・三好町・刈谷市にまたがる丘陵地</div>
+      </div>
+      <p class="lead rise d5" style="font-size:clamp(14px,1.35vw,21px)">昭和40年5月、用地取得に着手。<br>
+        パブリカ・カローラの月産10万台をめざす専門工場として。</p>
+    </div>
+    <div>
+      <div class="frame"><i style="background-image:var(--p-site);filter:contrast(1.04) saturate(.95)"></i><b></b></div>
+      <div class="cap">昭和41年ごろ　西岡町。畑の向こうに、建設中の高岡工場が立ち上がっていく。<br>
+        （イメージイラスト　作成：角田伸二／史実写真ではありません）</div>
+    </div>
+  </div>`},
+
+/* 10 トヨタの先読み */
+{hold:10000,bg:'none',anim:'flow',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">07 ｜ 売れてからでは、間に合わない</div>
+    <h2 class="rise d2">トヨタの先読み</h2>
+    <div class="flow">
+      <div class="node">所得の上昇</div><div class="sep">→</div>
+      <div class="node">需要の急増</div><div class="sep">→</div>
+      <div class="node">カローラ開発</div><div class="sep">→</div>
+      <div class="node">月産10万台体制</div><div class="sep">→</div>
+      <div class="node last">高岡工場</div>
+    </div>
+    <p class="lead rise d6" style="margin-top:5vh">「需要を確認してから」ではなく、<br>「需要が来る前に」能力を用意した。</p>
+  </div>`},
+
+/* 11 テーゼ */
+{hold:8000,bg:'site',wash:'radial-gradient(120% 100% at 50% 55%,rgba(66,12,20,.5) 0%,rgba(6,8,12,.95) 70%)',html:`
+  <div class="center">
+    <h1 class="rise d1 shadowtext" style="color:#9aa5b4">売れてから<br>造ったのではない。</h1>
+    <div class="rule"></div>
+    <h1 class="rise d3 shadowtext">売れる未来を信じて<br>造った。</h1>
+    <p class="lead rise d5 shadowtext">高岡工場。それは、未来に先回りする投資だった。</p>
+  </div>`},
+
+/* 12 1966 完成 航空写真 */
+{hold:11000,bg:'1966',
+ wash:'radial-gradient(120% 100% at 50% 15%,rgba(30,40,54,.28) 0%,rgba(6,8,12,.90) 72%)',html:`
+  <div class="center" style="transform:translateY(-4vh)">
+    <div class="eyebrow blur d1">1966　高岡工場　完成</div>
+    <h1 class="rise d2 shadowtext" style="font-size:clamp(24px,3.8vw,62px)">丘陵地に、<br>工場が立ち上がった。</h1>
+    <div class="rule"></div>
+    <p class="lead rise d4 shadowtext">建設開始から、わずか8か月あまり。</p>
+    <div class="note rise d6">背景：1966年当時の高岡工場 航空写真。<br>
+      1965年5月 用地取得開始 → 1965年12月 建設委員会設置 → 1966年1月 建設開始 → 1966年9月24日 生産開始。</div>
+  </div>`},
+
+/* 13 始動・カローラ走行 */
+{hold:11500,bg:'1966',car:'drive',
+ wash:'radial-gradient(120% 100% at 50% 40%,rgba(29,43,61,.38) 0%,rgba(6,8,12,.93) 70%)',html:`
+  <div class="center" style="transform:translateY(-15vh)">
+    <div class="eyebrow blur d1">1966.09.24</div>
+    <h1 class="rise d2 shadowtext">高岡工場　始動</h1>
+    <div class="rule"></div>
+    <p class="lead rise d4 shadowtext">そして、一台のカローラが高岡から走り出した。</p>
+    <div class="badge rise d5">ここから、59年間の物語が始まる。</div>
+  </div>`},
+
+/* 14 1966 → 2026 ワイプ比較 */
+{hold:15000,bg:'none',anim:'compare',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">08 ｜ 1966 － 2026</div>
+    <h2 class="rise d2" style="margin-bottom:3vh">同じ土地の、59年。</h2>
+    <div class="compare rise d3" id="cmp">
+      <div class="layer before" style="background-image:var(--p-1966);filter:grayscale(1) contrast(1.08)"></div>
+      <div class="layer after"  id="cmpAfter" style="background-image:var(--p-now)"></div>
+      <div class="handle" id="cmpHandle"></div>
+      <div class="lab l">1966<span class="s">高岡工場 完成</span></div>
+      <div class="lab r">2026<span class="s">現在の高岡工場</span></div>
+    </div>
+    <div class="note rise d5">スライダーは自動で動きます。ドラッグして手動で比較することもできます。</div>
+  </div>`},
+
+/* 15 現在 フルブリード */
+{hold:11000,bg:'now',
+ wash:'radial-gradient(120% 100% at 50% 30%,rgba(20,34,50,.20) 0%,rgba(6,8,12,.86) 74%)',
+ anim:'counters',html:`
+  <div class="center">
+    <div class="eyebrow blur d1">TAKAOKA PLANT ｜ NOW</div>
+    <h1 class="rise d2 shadowtext" style="font-size:clamp(24px,3.8vw,62px)">丘陵地は、<br>工場になった。</h1>
+    <div class="metricrow rise d4" style="margin-top:4vh">
+      <div><div class="cap">高岡工場</div>
+        <div class="metric"><span class="num bignum" data-count="59" data-dec="0">0</span><span class="unit">年</span></div></div>
+      <div class="arrow">→</div>
+      <div><div class="cap">2026年</div>
+        <div class="metric"><span class="num bignum" data-count="60" data-dec="0">0</span><span class="unit">周年</span></div></div>
+    </div>
+    <p class="lead rise d6 shadowtext">59年間、ここでクルマをつくり続けてきた。</p>
+  </div>`},
+
+/* 16 年表レール */
+{hold:11000,bg:'dim',anim:'rail',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">09 ｜ 次のドラマへの入口</div>
+    <h2 class="rise d2">なぜ、高岡だったのか。</h2>
+    <p class="lead rise d3" style="font-size:clamp(14px,1.35vw,21px)">広大な丘陵地。将来の拡張性。既存拠点との位置関係。<br>物流。道路。労働力。地域との関係。</p>
+    <div class="rail">
+      <div class="stop"><div class="y">1965.05</div><div class="t">用地取得開始<br>丘陵地125万m²</div></div>
+      <div class="stop"><div class="y">1965.12</div><div class="t">建設委員会設置</div></div>
+      <div class="stop"><div class="y">1966.01</div><div class="t">建設開始</div></div>
+      <div class="stop hot"><div class="y">1966.09.24</div><div class="t">初代カローラ<br>生産開始</div></div>
+    </div>
+    <div class="note rise d6">確認対象：候補地比較、選定理由、提案部署、最終決定者、建設委員会資料、建設前航空写真。<br>
+      記念史は、ここを一次資料で解き明かす。</div>
+  </div>`},
+
+/* 17 エンディング */
+{hold:16000,bg:'now',car:'slow',
+ wash:'radial-gradient(120% 100% at 50% 50%,rgba(16,26,40,.42) 0%,rgba(6,8,12,.94) 72%)',html:`
+  <div class="center" style="transform:translateY(-10vh)">
+    <div class="eyebrow blur d1">TAKAOKA PLANT ｜ 1966 － 2026</div>
+    <h2 class="rise d2 shadowtext">次章：59年間の歩み。</h2>
+    <div class="hrule"></div>
+    <p class="lead rise d4 shadowtext">そして最後に、「現在の高岡工場」を映像で記録する。</p>
+  </div>`},
+/* ================================================================
+   18 [ADD] 丘陵地に広がる工場用地（航空写真・全面背景）
+   ================================================================ */
+{hold:12000,bg:'none',wash:'radial-gradient(120% 100% at 50% 30%,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 100%)',html:`
+  <div class="bleed66" style="background-image:var(--y66-airw)"></div>
+  <div class="bridge">
+    <div><div class="stamp rise d1">1966</div>
+      <div class="stampsub rise d3">THE STORY BEGINS</div></div>
+    <div class="tl">
+      <div class="ev dim" style="animation-delay:.7s"><time>1965.05</time><h3>用地取得開始</h3></div>
+      <div class="ev dim" style="animation-delay:1.3s"><time>1966.01</time><h3>建設開始</h3></div>
+      <div class="ev" style="animation-delay:1.9s"><time>1966</time><h3>高岡工場 完成</h3></div>
+      <div class="ev" style="animation-delay:2.5s"><time>1966.09.24</time>
+        <h3>高岡工場 生産開始<br>初代カローラ、ここから。</h3></div>
+      <div class="ev" style="animation-delay:3.3s"><time>NEXT CHAPTER</time>
+        <h3 style="color:var(--accent)">そして、年表がはじまる。</h3></div>
+    </div>
+  </div>`},
+/* ================================================================
+   19 [ADD] 祝 高岡工場完成（カラー写真・大判ワイプ）
+   ================================================================ */
+{hold:12000,bg:'none',html:`
+  <div class="gate">
+    <div><div class="gatephoto"><i style="background-image:var(--y66-gate)"></i><b></b></div>
+      <div class="cap">1966年　高岡工場 完成。正門に掲げられた「祝 高岡工場完成」。</div></div>
+    <div class="left">
+      <div class="eyebrow red rise d1">1966 ｜ 高岡工場 完成</div>
+      <h2 class="rise d2" style="font-size:clamp(21px,2.8vw,44px);line-height:1.3">
+        丘を削った場所に、<br>工場の門が立った。</h2>
+      <div class="rule" style="margin-left:0"></div>
+      <p class="lead rise d4" style="font-size:clamp(13px,1.26vw,20px)">
+        まだ売れていないクルマのために、<br>
+        まだ存在しなかった工場が、<br>ここに完成した。</p>
+    </div>
+  </div>`},
+/* ================================================================
+   20 [ADD] 祝 トヨタカローラ1号車 ラインオフ（縦写真）
+   ================================================================ */
+{hold:13000,bg:'dim',html:`
+  <div class="duo">
+    <div><div class="tallphoto"><i style="background-image:var(--y66-one)"></i></div></div>
+    <div class="left">
+      <div class="eyebrow red rise d1">1966.09.24 ｜ LINE OFF</div>
+      <h2 class="rise d2" style="font-size:clamp(21px,2.8vw,44px);line-height:1.3">
+        祝　トヨタカローラ<br>1号車 ラインオフ。</h2>
+      <div class="rule" style="margin-left:0"></div>
+      <p class="lead rise d4" style="font-size:clamp(13px,1.26vw,20px)">
+        紙テープと花に包まれて、<br>
+        高岡工場で最初のカローラが、ラインを降りた。</p>
+      <p class="lead rise d5" style="color:#fff;font-size:clamp(13px,1.26vw,20px)">
+        ここから、すべてが始まった。</p>
+    </div>
+  </div>`},
+/* ================================================================
+   21 [ADD] 稼働を始めた生産ライン（全面背景）
+   ================================================================ */
+{hold:11000,bg:'none',html:`
+  <div class="bleed66" style="background-image:var(--y66-line)"></div>
+  <div class="center">
+    <div class="eyebrow red rise d1">1966 ｜ 稼働</div>
+    <h1 class="rise d2 shadowtext" style="font-size:clamp(26px,4vw,66px)">造る力が、<br>動き始めた。</h1>
+    <div class="rule"></div>
+    <p class="lead rise d4 shadowtext">月産10万台をめざした専門工場。<br>
+      構想は、現場の作業とともに動き出した。</p>
+  </div>`},
+/* ================================================================
+   22 [ADD] 本年表 1966年 スタート（写真グリッド）
+   ================================================================ */
+{hold:20000,bg:'dim',html:`
+  <div class="y66">
+    <div class="head66">
+      <div class="huge66 rise d1">1966</div>
+      <div class="left">
+        <div class="eyebrow red rise d2">高岡工場60周年記念史 ｜ 年表</div>
+        <h2 class="rise d3" style="font-size:clamp(19px,2.4vw,38px);line-height:1.3">
+          高岡工場の歩み、ここから始まる。</h2>
+      </div>
+    </div>
+    <div class="grid66">
+      <div class="sh color" style="animation-delay:.6s"><i style="background-image:var(--y66-gate)"></i>
+        <div class="tag"><small>1966</small>高岡工場 完成</div></div>
+      <div class="sh" style="animation-delay:1.0s"><i style="background-image:var(--y66-airn)"></i>
+        <div class="tag"><small>PLANT</small>完成した工場群</div></div>
+      <div class="sh" style="animation-delay:1.4s"><i style="background-image:var(--y66-one)"></i>
+        <div class="tag"><small>1966.09.24</small>カローラ1号車 ラインオフ</div></div>
+      <div class="sh" style="animation-delay:1.8s"><i style="background-image:var(--y66-line)"></i>
+        <div class="tag"><small>LINE</small>稼働を始めた生産ライン</div></div>
+      <div class="sh" style="animation-delay:2.2s"><i style="background-image:var(--y66-airw)"></i>
+        <div class="tag"><small>SITE</small>丘陵地に広がる工場用地</div></div>
+      <div class="sh" style="animation-delay:2.6s"><i style="background-image:var(--y66-car)"></i>
+        <div class="tag"><small>PRODUCT</small>初代カローラ</div></div>
+    </div>
+    <div class="center"><div class="enter66 rise d6">この先へ　1967年 ▶</div></div>
+    <div class="cap" style="text-align:center">写真の出典・キャプションは正式版で確定します。</div>
+  </div>`}
+,
+/* ================================================================
+   23 [ADD-3] 1967年章  扉
+   ================================================================ */
+{hold:9000,bg:'dim',html:`
+  <div class="chapmark">
+    <div class="no rise d1">CHAPTER 02</div>
+    <div class="yr rise d2">1967</div>
+    <div class="ttl rise d4">造り始めた工場が、<br>造り続ける工場になる年。</div>
+  </div>`},
+
+/* ================================================================
+   24 [ADD-3] ナレーション：一年目が終わる
+   ================================================================ */
+{hold:13000,bg:'none',anim:'narration',html:`
+  <div class="bleed66" style="background-image:var(--y66-line)"></div>
+  <div class="narr">
+    <p>1966年9月24日。高岡工場から、最初のカローラが出た。</p>
+    <p>式典の紙テープは、その日のうちに片づけられた。</p>
+    <p>翌日からは、ただ造り続ける日々が始まる。</p>
+    <p style="color:#fff">1967年は、その最初の一年だった。</p>
+  </div>`},
+
+/* ================================================================
+   25 [ADD-3] カローラ ― 初めての通年生産
+   ================================================================ */
+{hold:13000,bg:'paper',html:`
+  <div class="plate">
+    <div>
+      <div class="platewide"><i style="background-image:var(--y67-cor)"></i>
+        <span class="stamp">TOYOTA COROLLA 1100 ／ 1966-1967</span></div>
+    </div>
+    <div class="left">
+      <div class="eyebrow rise d1">1967 ｜ 主力車種</div>
+      <h2 class="rise d2" style="font-size:clamp(20px,2.6vw,40px)">カローラ、<br>初めての通年生産。</h2>
+      <div class="spec rise d4">
+        <dl>
+          <dt>高岡工場 生産開始</dt><dd>1966年9月24日</dd>
+          <dt>1967年</dt><dd>初の通年生産</dd>
+          <dt>車種</dt><dd>カローラ 1100</dd>
+        </dl>
+      </div>
+      <p class="lead rise d5" style="font-size:clamp(13px,1.25vw,19px);margin-top:2.2vh">
+        1966年の高岡は、実質3か月あまりの稼働だった。<br>
+        1年を通して造るのは、1967年が初めてになる。</p>
+      <div class="todo rise d6">未確認：1967年 高岡工場 年間生産台数／稼働ライン数<br>
+        ― 一次資料で確定させる項目です</div>
+    </div>
+  </div>`},
+
+/* ================================================================
+   26 [ADD-3] パブリカ ― 構想の中のもう一台
+   ================================================================ */
+{hold:13000,bg:'paper',html:`
+  <div class="plate">
+    <div>
+      <div class="platewide"><i style="background-image:var(--y67-pub)"></i>
+        <span class="stamp">TOYOTA PUBLICA</span></div>
+    </div>
+    <div class="left">
+      <div class="eyebrow rise d1">1967 ｜ 構想を読み直す</div>
+      <h2 class="rise d2" style="font-size:clamp(20px,2.6vw,40px)">計画書には、<br>二つの車名があった。</h2>
+      <div class="spec rise d4">
+        <dl>
+          <dt>高岡工場 構想</dt><dd>パブリカ・カローラ専門工場</dd>
+          <dt>目標</dt><dd>月産10万台</dd>
+        </dl>
+      </div>
+      <p class="lead rise d5" style="font-size:clamp(13px,1.25vw,19px);margin-top:2.2vh">
+        高岡は計画の段階から「大衆車をつくる工場」だった。<br>
+        その役割は、車名がそのまま語っている。</p>
+      <div class="todo rise d6">未確認：高岡工場におけるパブリカ生産の有無・時期・台数</div>
+    </div>
+  </div>`},
+
+/* ================================================================
+   27 [ADD-3] 時代の背景（数値）
+   ================================================================ */
+{hold:10000,bg:'dim',anim:'counters',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">1967 ｜ 時代の背景</div>
+    <h2 class="rise d2">工場の外でも、<br>数字が動いていた。</h2>
+    <div class="metricrow rise d3" style="margin-top:4vh">
+      <div><div class="cap">世界の自動車生産</div>
+        <div class="metric"><span class="num" data-count="2" data-dec="0">0</span><span class="unit">位</span></div></div>
+    </div>
+    <div class="badge rise d5">1967年 ― 日本が世界第2位の自動車生産国へ</div>
+    <p class="lead rise d6" style="font-size:clamp(14px,1.35vw,21px)">
+      高岡の始動は、この流れのただ中にあった。</p>
+    <div class="note rise d6">出典・定義（四輪／乗用車の別）は正式版で再確認します。</div>
+  </div>`},
+
+/* ================================================================
+   28 [ADD-3] 2000GT ― 同じ年、もう一つのトヨタ
+   ================================================================ */
+{hold:14000,bg:'none',
+ wash:'radial-gradient(120% 100% at 50% 40%,rgba(24,34,48,.30) 0%,rgba(6,8,12,.92) 72%)',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">1967 ｜ もう一つのトヨタ</div>
+    <h2 class="rise d2" style="margin-bottom:3vh">大衆車の隣に、<br>技術の頂点があった。</h2>
+    <div class="widecar"><i style="background-image:var(--y67-gt)"></i><b></b></div>
+    <p class="lead rise d5" style="font-size:clamp(13px,1.28vw,20px)">
+      トヨタ2000GT、1967年発売。<br>
+      量産を担う高岡と、技術を示す一台。<br>
+      同じ年に、トヨタは二つの方向へ踏み出していた。</p>
+    <div class="note rise d6">2000GTは高岡工場の生産車種ではありません。1967年という同時代性を示す参考写真です。<br>
+      （写真：トヨタ博物館所蔵車両）</div>
+  </div>`},
+
+/* ================================================================
+   [ADD-4] 1967  高岡工場 全景（航空写真・大判）
+   ================================================================ */
+{hold:15000,bg:'dim',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">1967 ｜ 高岡工場 全景</div>
+    <h2 class="rise d2" style="margin-bottom:2.6vh;font-size:clamp(19px,2.4vw,38px)">
+      丘陵地を削った場所に、<br>四棟の屋根が並んだ。</h2>
+    <div class="airshot"><i style="background-image:var(--y67-air)"></i><b></b>
+      <div class="ovl"><div class="s">TAKAOKA PLANT</div>
+        <div class="t">畑の中に、工場だけが立っている。</div></div>
+    </div>
+    <p class="lead rise d5" style="font-size:clamp(13px,1.24vw,19px);margin-top:2vh">
+      まわりはまだ、田畑と造成地のままだった。<br>
+      道路も、社宅も、通勤の足も、これから整っていく。</p>
+    <div class="todo rise d6">未確認：撮影年月・撮影方位・写っている各棟の名称</div>
+  </div>`},
+
+/* ================================================================
+   29 [ADD-3] ナレーション：記録されなかった一年
+   ================================================================ */
+{hold:14000,bg:'dim',anim:'narration',html:`
+  <div class="narr">
+    <p>1966年には、写真が残っている。</p>
+    <p>式典があり、1号車があり、記録する理由があったからだ。</p>
+    <p>だが1967年の高岡に、同じような写真は少ない。</p>
+    <p>特別な日ではなく、ふつうの日が続いたということでもある。</p>
+    <p style="color:#fff">工場が日常になった年。それが1967年だった。</p>
+  </div>`},
+
+/* ================================================================
+   30 [ADD-3] 本年表 1967年
+   ================================================================ */
+{hold:20000,bg:'dim',html:`
+  <div class="y67">
+    <div class="head66">
+      <div class="huge67 rise d1">1967</div>
+      <div class="left">
+        <div class="eyebrow red rise d2">高岡工場60周年記念史 ｜ 年表</div>
+        <h2 class="rise d3" style="font-size:clamp(19px,2.4vw,38px);line-height:1.3">
+          動き出した工場が、走り続けた年。</h2>
+      </div>
+    </div>
+    <div class="grid67">
+      <div class="sh" style="animation-delay:.6s"><i style="background-image:var(--y66-line)"></i>
+        <div class="tag"><small>LINE</small>量産ラインの本格稼働</div></div>
+      <div class="sh color" style="animation-delay:1.0s"><i style="background-image:var(--y67-cor);background-size:contain;background-color:#efeae0"></i>
+        <div class="tag"><small>PRODUCT</small>カローラ 1100</div></div>
+      <div class="sh color" style="animation-delay:1.4s"><i style="background-image:var(--y67-pub);background-size:contain;background-color:#efeae0"></i>
+        <div class="tag"><small>PRODUCT</small>パブリカ</div></div>
+      <div class="sh color" style="animation-delay:1.8s"><i style="background-image:var(--y67-gt)"></i>
+        <div class="tag"><small>1967</small>トヨタ2000GT（参考）</div></div>
+      <div class="sh" style="animation-delay:2.2s"><i style="background-image:var(--y67-air)"></i>
+        <div class="tag"><small>PLANT</small>高岡工場 全景</div></div>
+      <div class="sh" style="animation-delay:2.6s"><i style="background-image:var(--y66-one)"></i>
+        <div class="tag"><small>1966.09.24</small>ここから、1年が過ぎた</div></div>
+    </div>
+    <div class="center"><div class="enter67 rise d6">この先へ　1968年 ▶</div></div>
+    <div class="cap" style="text-align:center">写真の出典・キャプション、および1967年の数値は正式版で確定します。</div>
+  </div>`}
+,
+/* ================================================================
+   32 [ADD-6] 1968年章  扉
+   ================================================================ */
+{hold:9000,bg:'dim',html:`
+  <div class="chapmark">
+    <div class="no rise d1">CHAPTER 03</div>
+    <div class="yr rise d2">1968</div>
+    <div class="ttl rise d4">一本のラインに、<br>四つの車種が流れはじめた。</div>
+  </div>`},
+
+/* ================================================================
+   33 [ADD-6] ナレーション：車種が増えるということ
+   ================================================================ */
+{hold:14000,bg:'none',anim:'narration',html:`
+  <div class="bleed66" style="background-image:var(--y68-line)"></div>
+  <div class="narr">
+    <p>1968年、高岡はカローラだけの工場ではなくなった。</p>
+    <p>5月、カローラ・スプリンターが発売される。</p>
+    <p>前年に生まれたミニエースも、この年バンが加わった。</p>
+    <p style="color:#fff">カローラ、スプリンター、ミニエース、パブリカ。</p>
+  </div>`},
+
+/* ================================================================
+   34 [ADD-6] 4車種ラインアップ
+   ================================================================ */
+{hold:15000,bg:'dim',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">1968 ｜ 高岡の四車種</div>
+    <h2 class="rise d2" style="font-size:clamp(19px,2.4vw,38px);line-height:1.34">
+      大衆車も、商用車も、スポーティーも。</h2>
+    <div class="lineup">
+      <div class="lu cover" style="animation-delay:.5s"><i style="background-image:var(--y67-cor);background-size:contain;background-color:#efeae0"></i>
+        <div class="tag"><small>1966.11 -</small>カローラ 1100</div></div>
+      <div class="lu trans" style="animation-delay:.9s"><i style="background-image:var(--y68-spr)"></i>
+        <div class="tag"><small>1968.5 -</small>カローラ・スプリンター</div></div>
+      <div class="lu" style="animation-delay:1.3s"><i style="background-image:var(--y68-minit);background-color:#e9e6de"></i>
+        <div class="tag"><small>1967.11 -</small>ミニエース トラック</div></div>
+      <div class="lu" style="animation-delay:1.7s"><i style="background-image:var(--y67-pub);background-color:#efeae0"></i>
+        <div class="tag"><small>1961 -</small>パブリカ</div></div>
+    </div>
+    <div class="todo rise d6">未確認：高岡工場で実際に生産された車種・時期の一次資料による確定<br>
+      （スプリンターはカローラと車台を共有する姉妹車）</div>
+  </div>`},
+
+/* ================================================================
+   [ADD-7] 1968  カローラ・スプリンター（透過素材・大判）
+   ================================================================ */
+{hold:14000,bg:'dim',
+ wash:'radial-gradient(120% 100% at 50% 45%,rgba(28,20,24,.34) 0%,rgba(6,8,12,.94) 72%)',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">1968.05 ｜ 新型車</div>
+    <h2 class="rise d2" style="font-size:clamp(19px,2.4vw,38px);line-height:1.34;margin-bottom:2vh">
+      同じ車台から、<br>もう一つの性格が生まれた。</h2>
+    <div class="solocar"></div>
+    <p class="lead rise d5" style="font-size:clamp(13px,1.26vw,20px);margin-top:1.4vh">
+      カローラ・スプリンター。<br>
+      実用のカローラに対して、姿勢を低く、線を速く。<br>
+      高岡のラインには、性格の違う兄弟が並んで流れた。</p>
+    <div class="todo rise d6">未確認：高岡工場でのスプリンター生産開始時期・生産比率</div>
+  </div>`},
+
+/* ================================================================
+   35 [ADD-6] 価格帯グラフ（本題）
+   ================================================================ */
+{hold:22000,bg:'none',anim:'prices',
+ wash:'radial-gradient(120% 100% at 50% 20%,rgba(18,26,38,.28) 0%,rgba(6,8,12,.94) 74%)',html:`
+  <div class="center" style="width:100%">
+    <div class="eyebrow red rise d1">1968 ｜ 価格で読む四車種</div>
+    <h2 class="rise d2" style="font-size:clamp(18px,2.3vw,36px);line-height:1.34">
+      32万円から、58万円まで。<br>ひとつの工場が、四つの価格帯を受け持った。</h2>
+    <div class="pricechart" id="pchart">
+      <div class="prow truck" data-w="55.9"><div class="nm">ミニエース<small>TRUCK UP100</small></div>
+        <div class="track"><div class="fill"></div></div><div class="val">32.8<em>万円</em></div></div>
+      <div class="prow small" data-w="61.2"><div class="nm">パブリカ<small>800 STANDARD</small></div>
+        <div class="track"><div class="fill"></div></div><div class="val">35.9<em>万円</em></div></div>
+      <div class="prow main" data-w="73.6"><div class="nm">カローラ<small>1100 STANDARD</small></div>
+        <div class="track"><div class="fill"></div></div><div class="val">43.2<em>万円</em></div></div>
+      <div class="prow main" data-w="84.3"><div class="nm">カローラ<small>1100 DELUXE</small></div>
+        <div class="track"><div class="fill"></div></div><div class="val">49.5<em>万円</em></div></div>
+      <div class="prow sport" data-w="83.0"><div class="nm">スプリンター<small>STANDARD</small></div>
+        <div class="track"><div class="fill"></div></div><div class="val">48.7<em>万円</em></div></div>
+      <div class="prow sport" data-w="100"><div class="nm">スプリンター<small>SL</small></div>
+        <div class="track"><div class="fill"></div></div><div class="val">58.7<em>万円</em></div></div>
+      <div class="incomeline" id="pincome">
+        <div class="mid"><div class="bar"></div>
+          <div class="lb">1966年 平均年収 48.65万円</div></div>
+      </div>
+    </div>
+    <div class="note rise d6" style="margin-top:7vh">
+      価格はいずれも発売時の東京地区価格（最廉価グレード基準、スプリンターは標準車とSL）。<br>
+      破線は比較の目安として1966年の平均年収を置いたもの。1968年の数値は正式版で再確認します。</div>
+  </div>`},
+
+/* ================================================================
+   36 [ADD-6] 価格差が意味するもの
+   ================================================================ */
+{hold:14000,bg:'dim',anim:'narration',html:`
+  <div class="narr">
+    <p>もっとも安いミニエースと、もっとも高いスプリンターSL。</p>
+    <p>その差は、およそ26万円。ミニエース一台分に近い。</p>
+    <p>働くための車と、楽しむための車が、同じ屋根の下にあった。</p>
+    <p style="color:#fff">高岡は「大衆車の工場」から、<br>「幅を持った工場」へ変わりはじめていた。</p>
+  </div>`},
+
+/* ================================================================
+   37 [ADD-6] ミニエース ― 働く車
+   ================================================================ */
+{hold:13000,bg:'paper',html:`
+  <div class="plate">
+    <div>
+      <div class="platewide"><i style="background-image:var(--y68-miniv)"></i>
+        <span class="stamp">TOYOTA MINIACE VAN ／ 1968</span></div>
+    </div>
+    <div class="left">
+      <div class="eyebrow rise d1">1968 ｜ 働くための一台</div>
+      <h2 class="rise d2" style="font-size:clamp(20px,2.6vw,40px)">32万8千円という、<br>答え。</h2>
+      <div class="spec rise d4">
+        <dl>
+          <dt>発売</dt><dd>1967年11月</dd>
+          <dt>バン追加</dt><dd>1968年</dd>
+          <dt>エンジン</dt><dd>空冷水平対向2気筒 790cc</dd>
+          <dt>最大積載量</dt><dd>500kg</dd>
+        </dl>
+      </div>
+      <p class="lead rise d5" style="font-size:clamp(13px,1.25vw,19px);margin-top:2.2vh">
+        当時の小型トラックはおよそ40万円。<br>
+        ミニエースは、そこに8万円近い差をつけて現れた。<br>
+        パブリカと同じエンジンが、荷物を運ぶ側へ回った。</p>
+    </div>
+  </div>`},
+
+/* ================================================================
+   38 [ADD-6] 本年表 1968年
+   ================================================================ */
+{hold:20000,bg:'dim',html:`
+  <div class="y67">
+    <div class="head66">
+      <div class="huge67 rise d1">1968</div>
+      <div class="left">
+        <div class="eyebrow red rise d2">高岡工場60周年記念史 ｜ 年表</div>
+        <h2 class="rise d3" style="font-size:clamp(19px,2.4vw,38px);line-height:1.3">
+          一車種の工場から、四車種の工場へ。</h2>
+      </div>
+    </div>
+    <div class="grid67">
+      <div class="sh" style="animation-delay:.6s"><i style="background-image:var(--y68-line)"></i>
+        <div class="tag"><small>昭和43〜44年頃</small>混流するライン</div></div>
+      <div class="sh color" style="animation-delay:1.0s"><i style="background-image:var(--y67-cor);background-size:contain;background-color:#efeae0"></i>
+        <div class="tag"><small>PRODUCT</small>カローラ 1100</div></div>
+      <div class="sh color" style="animation-delay:1.4s"><i style="background-image:var(--y68-miniv);background-size:contain;background-color:#efeae0"></i>
+        <div class="tag"><small>1968</small>ミニエース バン</div></div>
+      <div class="sh color" style="animation-delay:1.8s"><i style="background-image:var(--y68-minit);background-size:contain;background-color:#e9e6de"></i>
+        <div class="tag"><small>1967.11</small>ミニエース トラック</div></div>
+      <div class="sh color" style="animation-delay:2.2s"><i style="background-image:var(--y67-pub);background-size:contain;background-color:#efeae0"></i>
+        <div class="tag"><small>PRODUCT</small>パブリカ</div></div>
+      <div class="sh trans" style="animation-delay:2.6s"><i style="background-image:var(--y68-spr)"></i>
+        <div class="tag"><small>1968.05</small>カローラ・スプリンター</div></div>
+    </div>
+    <div class="center"><div class="enter67 rise d6">この先へ　1969年 ▶</div></div>
+    <div class="cap" style="text-align:center">写真の出典・キャプション、および各年の数値は正式版で確定します。</div>
+  </div>`}
+
+
+
+];
+
+
+SCENES.push({hold:12000,bg:'none',html:`
+<div class="center"><div class="eyebrow rise d1">TAKAOKA PLANT 60th ANNIVERSARY</div>
+<h2 class="rise d2">高岡工場60周年記念史</h2><div class="rule"></div>
+<p class="lead rise d3">序章・1966〜1968年章</p>
+<div class="rise d4" style="margin:3vh auto 0;display:grid;grid-template-columns:auto auto;gap:1.4vh 2.4em;align-items:baseline;text-align:left;font-size:clamp(16px,1.8vw,27px);line-height:1.65">
+  <span style="color:#aeb7c5">制作</span><strong>角田　伸二</strong>
+  <span style="color:#aeb7c5">BGM</span><div><strong>高岡・静かな歳月</strong><br><span style="font-size:.8em;color:#d5dbe4">Shinj T</span></div>
+  <span style="color:#aeb7c5">ナレーション</span><strong>VOICEVOX:冥鳴ひまり</strong>
+</div>
+<p class="note rise d5" style="margin-top:4vh">ご覧いただき、ありがとうございました。</p>
+</div>`});
+
+const NARRATION = [{"file": "assets/audio/audi_01.wav", "duration": 14.204666666666666, "cues": [{"start": 1.4, "end": 13.954666666666666, "text": "高岡工場、六十周年記念史。売れる未来を信じて、造った。なぜ、このタイミングで高岡工場をつくったのか。その始まりを、たどります。"}]}, {"file": "assets/audio/audi_02.wav", "duration": 10.866, "cues": [{"start": 1.4, "end": 10.616, "text": "千九百六十五年。日本は、大きく変わろうとしていました。すべての始まりは、工場ではありませんでした。"}]}, {"file": "assets/audio/audi_03.wav", "duration": 11.164666666666667, "cues": [{"start": 1.4, "end": 10.914666666666667, "text": "所得が伸び、人々の購買力が上がり始めます。クルマへの憧れが、少しずつ、現実へ近づいていました。"}]}, {"file": "assets/audio/audi_04.wav", "duration": 12.679333333333334, "cues": [{"start": 1.4, "end": 12.429333333333334, "text": "グラフが示すのは、国内の新車販売の広がりです。高岡工場の計画が動き出すころ、市場はすでに、大きく動き始めていました。"}]}, {"file": "assets/audio/audi_05.wav", "duration": 9.959333333333333, "cues": [{"start": 1.4, "end": 9.709333333333333, "text": "一家に一台は、まだ先のこと。それでも、クルマが暮らしに広がっていく、その流れは見えていました。"}]}, {"file": "assets/audio/audi_06.wav", "duration": 16.03933333333333, "cues": [{"start": 1.4, "end": 15.789333333333333, "text": "新しい大衆車、カローラ。千九百六十六年十一月の発表に先立ち、高岡工場では九月に生産が始まります。商品と工場は、同時に準備されていました。"}]}, {"file": "assets/audio/audi_07.wav", "duration": 14.599333333333334, "cues": [{"start": 1.4, "end": 14.349333333333334, "text": "カローラの価格は、四十三万二千円。当時の平均年収と比べると、ほぼ一年分です。身近になりつつあっても、クルマはまだ、大きな買い物でした。"}]}, {"file": "assets/audio/audi_08.wav", "duration": 13.692666666666666, "cues": [{"start": 1.4, "end": 13.442666666666666, "text": "新しいクルマだけでは、時代の需要を支えられません。必要だったのは、大量につくる能力。カローラと新工場、その両方を準備することでした。"}]}, {"file": "assets/audio/audi_09.wav", "duration": 15.41, "cues": [{"start": 1.4, "end": 15.16, "text": "昭和四十年五月、用地の取得が始まります。広さは、百二十五万平方メートル。工場の建設は、まず、丘陵地を切り開くところから始まりました。"}]}, {"file": "assets/audio/audi_10.wav", "duration": 14.546, "cues": [{"start": 1.4, "end": 14.296, "text": "所得の上昇から、需要の拡大へ。売れてからでは、間に合わない。需要が来る前に、つくる力を用意する。それが、高岡工場へとつながっていきます。"}]}, {"file": "assets/audio/audi_11.wav", "duration": 11.826, "cues": [{"start": 1.4, "end": 11.576, "text": "売れてから、造ったのではない。売れる未来を信じて、造った。高岡工場。それは、未来に先回りする投資でした。"}]}, {"file": "assets/audio/audi_12.wav", "duration": 13.116666666666667, "cues": [{"start": 1.4, "end": 12.866666666666667, "text": "千九百六十六年。丘陵地に、工場が立ち上がりました。建設開始から、わずか八か月あまり。構想が、形になったのです。"}]}, {"file": "assets/audio/audi_13.wav", "duration": 12.508666666666667, "cues": [{"start": 1.4, "end": 12.258666666666667, "text": "千九百六十六年、九月二十四日。高岡工場、始動。そして、一台のカローラが、高岡から走り出しました。"}]}, {"file": "assets/audio/audi_14.wav", "duration": 10.140666666666666, "cues": [{"start": 1.4, "end": 9.890666666666666, "text": "完成当時と、現在の高岡工場。同じ土地に積み重なった歳月を、二枚の写真で見比べます。"}]}, {"file": "assets/audio/audi_15.wav", "duration": 11.303333333333333, "cues": [{"start": 1.4, "end": 11.053333333333333, "text": "丘陵地は、工場になった。ここでクルマをつくり続けてきた歩みは、二千二十六年、六十周年へとつながります。"}]}, {"file": "assets/audio/audi_16.wav", "duration": 13.884666666666666, "cues": [{"start": 1.4, "end": 13.634666666666666, "text": "なぜ、高岡だったのか。土地の広さ、物流、働く人々、そして地域との関係。その選択の背景を、記録からひもといていきます。"}]}, {"file": "assets/audio/audi_17.wav", "duration": 9.372666666666667, "cues": [{"start": 1.4, "end": 9.122666666666667, "text": "ここからは、年ごとの歩みへ。工場が生まれ、日々の営みを重ねていく姿を、たどります。"}]}, {"file": null, "duration": 0, "cues": []}, {"file": "assets/audio/audi_18.wav", "duration": 13.180666666666667, "cues": [{"start": 1.4, "end": 12.930666666666667, "text": "正門に掲げられた、祝、高岡工場完成の文字。まだ売れていないクルマのために、まだ存在しなかった工場が、ここに完成しました。"}]}, {"file": "assets/audio/audi_19.wav", "duration": 13.340666666666667, "cues": [{"start": 1.4, "end": 13.090666666666667, "text": "祝、トヨタカローラ、一号車ラインオフ。紙テープと花に包まれて、最初のカローラが、ラインを降りました。ここから、すべてが始まります。"}]}, {"file": "assets/audio/audi_20.wav", "duration": 10.620666666666667, "cues": [{"start": 1.4, "end": 10.370666666666667, "text": "造る力が、動き始めた。構想は、現場の一つひとつの作業となり、日々の生産へと変わっていきます。"}]}, {"file": null, "duration": 0, "cues": []}, {"file": "assets/audio/audi_21.wav", "duration": 8.423333333333334, "cues": [{"start": 1.4, "end": 8.173333333333334, "text": "千九百六十七年。造り始めた工場が、造り続ける工場になる年です。"}]}, {"file": "assets/audio/audi_22.wav", "duration": 21.401333333333334, "cues": [{"start": 0.7, "end": 7.6226666666666665, "text": "1966年9月24日。高岡工場から、最初のカローラが出た。"}, {"start": 7.8726666666666665, "end": 12.086, "text": "式典の紙テープは、その日のうちに片づけられた。"}, {"start": 12.336, "end": 16.261333333333333, "text": "翌日からは、ただ造り続ける日々が始まる。"}, {"start": 16.511333333333333, "end": 21.151333333333334, "text": "1967年は、その最初の一年だった。"}]}, {"file": "assets/audio/audi_23.wav", "duration": 14.332666666666666, "cues": [{"start": 1.4, "end": 14.082666666666666, "text": "カローラ、初めての通年生産。前年の稼働は、およそ三か月。千九百六十七年は、一年を通してクルマを造る、最初の年となりました。"}]}, {"file": "assets/audio/audi_24.wav", "duration": 13.49, "cues": [{"start": 1.4, "end": 13.24, "text": "構想の中にあった、二つの車名。パブリカと、カローラ。高岡工場がめざしていたのは、大衆車を広く届けるための、ものづくりでした。"}]}, {"file": "assets/audio/audi_25.wav", "duration": 12.018, "cues": [{"start": 1.4, "end": 11.768, "text": "工場の外でも、日本の自動車産業は大きく成長していました。高岡工場の始動は、その流れの、ただ中にありました。"}]}, {"file": "assets/audio/audi_26.wav", "duration": 16.839333333333332, "cues": [{"start": 1.4, "end": 16.589333333333332, "text": "同じ千九百六十七年、トヨタ二千ジーティーが登場します。こちらは高岡工場の生産車ではありません。大衆車の量産と、技術を示す一台。同じ時代の、二つの姿です。"}]}, {"file": "assets/audio/audi_27.wav", "duration": 11.25, "cues": [{"start": 1.4, "end": 11.0, "text": "丘陵地に並ぶ、工場の屋根。周囲に田畑が広がる写真から、立ち上がったばかりの高岡工場の姿が見えてきます。"}]}, {"file": "assets/audio/audi_28.wav", "duration": 26.835333333333335, "cues": [{"start": 0.7, "end": 4.86, "text": "1966年には、写真が残っている。"}, {"start": 5.11, "end": 10.283333333333333, "text": "式典があり、1号車があり、記録する理由があったからだ。"}, {"start": 10.533333333333333, "end": 16.005333333333333, "text": "だが1967年の高岡に、同じような写真は少ない。"}, {"start": 16.255333333333333, "end": 20.906, "text": "特別な日ではなく、ふつうの日が続いたということでもある。"}, {"start": 21.156, "end": 26.585333333333335, "text": "工場が日常になった年。それが1967年だった。"}]}, {"file": null, "duration": 0, "cues": []}, {"file": "assets/audio/audi_29.wav", "duration": 10.93, "cues": [{"start": 1.4, "end": 10.68, "text": "千九百六十八年。カローラに加え、この章では、スプリンター、ミニエース、パブリカにも目を向けます。"}]}, {"file": "assets/audio/audi_30.wav", "duration": 20.142666666666667, "cues": [{"start": 0.7, "end": 6.342666666666666, "text": "1968年、高岡はカローラだけの工場ではなくなった。"}, {"start": 6.592666666666666, "end": 10.624666666666666, "text": "5月、カローラ・スプリンターが発売される。"}, {"start": 10.874666666666666, "end": 15.226666666666667, "text": "前年に生まれたミニエースも、この年バンが加わった。"}, {"start": 15.476666666666667, "end": 19.892666666666667, "text": "カローラ、スプリンター、ミニエース、パブリカ。"}]}, {"file": "assets/audio/audi_31.wav", "duration": 12.220666666666666, "cues": [{"start": 1.4, "end": 11.970666666666666, "text": "大衆車、商用車、そしてスポーティーなクルマ。四つの車名を並べると、暮らしや仕事に応える、役割の違いが見えてきます。"}]}, {"file": "assets/audio/audi_32.wav", "duration": 12.476666666666667, "cues": [{"start": 1.4, "end": 12.226666666666667, "text": "カローラ・スプリンター。同じ車台から、もう一つの性格が生まれました。実用性に加え、走りやスタイルを楽しむ、一台です。"}]}, {"file": "assets/audio/audi_33.wav", "duration": 21.767333333333333, "cues": [{"start": 1.4, "end": 21.517333333333333, "text": "価格にも、それぞれの役割が表れています。ミニエースは三十二万八千円。カローラのスタンダードは四十三万二千円。スプリンター、エスエルは五十八万七千円。図の破線は、比較の目安に置いた、千九百六十六年の平均年収です。"}]}, {"file": "assets/audio/audi_34.wav", "duration": 24.58, "cues": [{"start": 0.7, "end": 5.3933333333333335, "text": "もっとも安いミニエースと、もっとも高いスプリンターSL。"}, {"start": 5.6433333333333335, "end": 11.040666666666667, "text": "その差は、およそ26万円。ミニエース一台分に近い。"}, {"start": 11.290666666666667, "end": 16.965333333333334, "text": "働くための車と、楽しむための車が、同じ屋根の下にあった。"}, {"start": 17.215333333333334, "end": 24.33, "text": "高岡は「大衆車の工場」から、、「幅を持った工場」へ変わりはじめていた。"}]}, {"file": "assets/audio/audi_35.wav", "duration": 16.07133333333333, "cues": [{"start": 1.4, "end": 15.821333333333333, "text": "働くための一台、ミニエース。トラックに続き、千九百六十八年にはバンが加わります。荷物を運び、日々の仕事を支えるクルマへと、用途が広がっていきました。"}]}, {"file": null, "duration": 0, "cues": []}, {"file": null, "duration": 0, "cues": []}];
+
+/* ================================================================
+   [3] 演出エンジン
+   ================================================================ */
+const stage=document.getElementById('stage'), ph=document.getElementById('ph'),
+      wash=document.getElementById('wash'), tint=document.getElementById('tint'),
+      paper=document.getElementById('paper'), car=document.getElementById('car'),
+      road=document.getElementById('road'), progress=document.getElementById('progress'),
+      counter=document.getElementById('counter'), btnPlay=document.getElementById('btnPlay'),
+      btnSpeed=document.getElementById('btnSpeed');
+
+let idx=0, playing=false, timer=null, speed=1.0, cmpRAF=null;
+const els=[];
+SCENES.forEach(s=>{const d=document.createElement('section');d.className='scene';
+  d.innerHTML=s.html;stage.appendChild(d);els.push(d);});
+
+const pad=n=>String(n).padStart(2,'0');
+const DEFWASH='radial-gradient(120% 100% at 50% 0%,rgba(22,32,46,.32) 0%,rgba(6,8,12,.93) 68%)';
+const CSS=getComputedStyle(document.documentElement);
+const IMG={site:CSS.getPropertyValue('--p-site'),y1966:CSS.getPropertyValue('--p-1966'),
+           now:CSS.getPropertyValue('--p-now')};
+
+function applyBG(mode){
+  document.body.classList.toggle('papermode', mode==='paper');
+  paper.style.opacity = (mode==='paper') ? '1' : '0';
+  if(mode==='paper'){ ph.style.opacity='0'; tint.style.opacity='0'; return; }
+
+  if(mode==='illust'){
+    /* 序章オープニング：イラストを主役に。暗くしすぎず、絵として見せる */
+    ph.style.backgroundImage=IMG.site; ph.style.backgroundPosition='center 46%';
+    ph.style.opacity='1'; ph.style.filter='grayscale(1) contrast(1.08) brightness(.88)';
+    tint.style.opacity='.35';
+  }else if(mode==='site'){
+    ph.style.backgroundImage=IMG.site; ph.style.backgroundPosition='center 42%';
+    ph.style.opacity='1'; ph.style.filter='contrast(1.05) saturate(.96) brightness(.66)';
+    tint.style.opacity='1';
+  }else if(mode==='1966'){
+    ph.style.backgroundImage=IMG.y1966; ph.style.backgroundPosition='center 48%';
+    ph.style.opacity='1'; ph.style.filter='grayscale(1) contrast(1.08) brightness(.52)';
+    tint.style.opacity='1';
+  }else if(mode==='now'){
+    ph.style.backgroundImage=IMG.now; ph.style.backgroundPosition='center 50%';
+    ph.style.opacity='1'; ph.style.filter='contrast(1.06) saturate(1.06) brightness(.62)';
+    tint.style.opacity='.4';
+  }else if(mode==='dim'){
+    ph.style.opacity='.38'; ph.style.filter='grayscale(1) contrast(1.05) brightness(.32) blur(2px)';
+    tint.style.opacity='.55';
+  }else{
+    ph.style.opacity='.09'; ph.style.filter='grayscale(1) brightness(.26) blur(7px)';
+    tint.style.opacity='.22';
+  }
+}
+
+function show(n){
+  n=Math.max(0,Math.min(n,SCENES.length-1));
+  if(cmpRAF){cancelAnimationFrame(cmpRAF);cmpRAF=null;}
+  els.forEach(e=>e.classList.remove('active'));
+  idx=n;
+  const sc=SCENES[idx], el=els[idx];
+
+  el.querySelectorAll('.rise,.blur,.node,.sep,.rule,.hrule,.stop,.frame i,.frame b,.platephoto i,.ev,.sh,.bleed66,.gatephoto i,.gatephoto b,.tallphoto i,.platewide i,.widecar i,.widecar b,.narr p,.chapmark .no,.chapmark .yr,.chapmark .ttl,.airshot i,.airshot b,.lu,.prow,.solocar')
+    .forEach(x=>{x.style.animation='none'; void x.offsetWidth; x.style.animation='';});
+  el.classList.add('active');
+
+  applyBG(sc.bg);
+  wash.style.background = sc.wash || DEFWASH;
+  document.body.classList.toggle('dustboost', !!sc.dust);
+
+  stopVoice();                 /* 前のシーンの読み上げを打ち切る */
+
+  car.className=''; car.style.opacity='0'; road.style.opacity='0';
+  if(sc.car){
+    void car.offsetWidth;
+    car.classList.add(sc.car);
+    if(sc.bg==='now'||sc.bg==='1966') car.classList.add('dark');
+    road.style.opacity='1';
+  }
+
+  counter.textContent=pad(idx+1)+' / '+pad(SCENES.length);
+  progress.style.width=((idx+1)/SCENES.length*100)+'%';
+
+  if(sc.anim==='counters') runCounters(el);
+  if(sc.anim==='bars')     runBars(el);
+  if(sc.anim==='flow')     runFlow(el);
+  if(sc.anim==='rail')     runRail(el);
+  if(sc.anim==='chart')    drawChart(el.querySelector('#chartHost'));
+  if(sc.anim==='compare')  runCompare(el);
+  if(sc.anim==='narration') runNarration(el);
+  if(sc.anim==='prices')   runPrices(el);
+
+  /* 音声ONのナレーション場面は読み上げ完了側から進める */
+  loadSceneVoice();
+}
+/* ---- 数値カウントアップ ---- */
+function runCounters(scope){
+  scope.querySelectorAll('[data-count]').forEach(el=>{
+    const target=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||'0',10);
+    const dur=1700, t0=performance.now();
+    el.textContent=(0).toFixed(dec);
+    function step(now){
+      const p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=(target*e).toFixed(dec);
+      if(p<1) requestAnimationFrame(step);
+    }
+    setTimeout(()=>requestAnimationFrame(step),750);
+  });
+}
+/* ---- 棒グラフ ---- */
+function runBars(scope){
+  scope.querySelectorAll('.stick').forEach((el,i)=>{
+    el.style.height='0';
+    setTimeout(()=>{el.style.height=(parseFloat(el.dataset.h)*0.78)+'%';},750+i*360);
+  });
+}
+/* ---- フロー・レール順次点灯 ---- */
+function runFlow(scope){
+  scope.querySelectorAll('.node,.sep').forEach((el,i)=>{el.style.animationDelay=(0.5+i*0.28)+'s';});
+}
+function runRail(scope){
+  scope.querySelectorAll('.rail .stop').forEach((el,i)=>{el.style.animationDelay=(0.9+i*0.35)+'s';});
+}
+
+/* ---- 価格帯グラフ（棒が順に伸びる／基準線は最後） ---- */
+function runPrices(scope){
+  const rows=scope.querySelectorAll('.prow');
+  rows.forEach((r,i)=>{
+    const fill=r.querySelector('.fill');
+    r.classList.remove('on'); fill.style.width='0';
+    r.style.animationDelay=(0.45+i*0.42)+'s';
+    void r.offsetWidth;
+    r.classList.add('on');
+    setTimeout(()=>{ fill.style.width=r.dataset.w+'%'; }, 700+i*420);
+  });
+  /* 平均年収の基準線：最大値（58.7万円＝100%）に対する相対位置 */
+  const inc=scope.querySelector('#pincome');
+  if(inc){
+    const pct=48.65/58.7*100;           /* 最大値58.7万円＝トラック幅100% */
+    inc.querySelector('.bar').style.left=pct+'%';
+    inc.querySelector('.lb').style.left=pct+'%';
+    inc.classList.remove('on'); void inc.offsetWidth; inc.classList.add('on');
+  }
+}
+
+/* ================================================================
+   [ADD-8] 音声ナレーション ―― VOICEVOX:冥鳴ひまり 事前生成音声
+   ・音声はこのHTMLにすべて内蔵。ネット接続不要
+   ・字幕が立ち上がるタイミングに合わせて1行ずつ読み上げる
+   ・実際の音声時間に字幕と場面転換を同期
+   ================================================================ */
+/* Pre-rendered VOICEVOX audio. No online speech service or OS voices. */
+let voiceOn=true;
+let narrationAudio=null, sceneTime=0, lastFrame=0, mediaWaiting=false;
+let audioFailed=false, playToken=0;
+const btnVoice=document.getElementById('btnVoice');
+const statusEl=document.getElementById('voiceStatus');
+const startOverlay=document.getElementById('startOverlay');
+function stopVoice(){
+  playToken++;
+  if(narrationAudio){narrationAudio.pause();narrationAudio.removeAttribute('src');narrationAudio.load();}
+  narrationAudio=null;mediaWaiting=false;audioFailed=false;
+  document.dispatchEvent(new CustomEvent('narrationactivity',{detail:false}));
+}
+function hasVoice(){return !!NARRATION[idx]?.file;}
+function updateButtons(){
+  btnPlay.textContent=playing?'❚❚ 一時停止':'▶ 自動再生';
+  btnVoice.textContent=voiceOn?'🔊 音声ON':'🔈 音声OFF';
+  btnVoice.classList.toggle('on',voiceOn);
+}
+function voiceError(){
+  mediaWaiting=false;audioFailed=true;playing=false;
+  statusEl.textContent='音声を再生できません。「再試行」か、音声OFFで続けてください。ページを開き直して再度お試しください。';
+  statusEl.hidden=false;document.getElementById('retryVoice').hidden=false;
+  if(narrationAudio)narrationAudio.pause();
+  document.dispatchEvent(new CustomEvent('presentationstate',{detail:false}));
+  updateButtons();
+}
+function loadSceneVoice(){
+  stopVoice();sceneTime=0;lastFrame=performance.now();
+  statusEl.hidden=true;document.getElementById('retryVoice').hidden=true;
+  if(hasVoice()){
+    const a=new Audio(NARRATION[idx].file);narrationAudio=a;
+    a.preload='auto';a.playbackRate=speed;a.preservesPitch=true;
+    a.addEventListener('error',()=>{if(a===narrationAudio && voiceOn && playing)voiceError();});
+    a.addEventListener('waiting',()=>{if(a===narrationAudio && voiceOn && playing)mediaWaiting=true;});
+    a.addEventListener('playing',()=>{if(a===narrationAudio){mediaWaiting=false;lastFrame=performance.now();}});
+    a.addEventListener('ended',()=>{if(a===narrationAudio){sceneTime=NARRATION[idx].duration;mediaWaiting=false;lastFrame=performance.now();}});
+  }
+  updateNarrationLines();
+  if(playing)resumeSceneVoice();
+}
+function resumeSceneVoice(){
+  if(!voiceOn || !narrationAudio || sceneTime>=NARRATION[idx].duration)return;
+  const a=narrationAudio, token=++playToken;
+  a.playbackRate=speed;
+  try{a.currentTime=sceneTime;}catch(e){}
+  mediaWaiting=true;
+  a.play().then(()=>{
+    if(token!==playToken || a!==narrationAudio)return;
+    mediaWaiting=false;lastFrame=performance.now();
+  }).catch(e=>{if(token===playToken && a===narrationAudio && e.name!=='AbortError')voiceError();});
+}
+function setPlaying(value){
+  if(value && idx===SCENES.length-1 && sceneTime>=SCENES[idx].hold/1000){show(0);}
+  playing=value;lastFrame=performance.now();
+  if(value){startOverlay.hidden=true;resumeSceneVoice();}
+  else{playToken++;if(narrationAudio)narrationAudio.pause();mediaWaiting=false;}
+  document.dispatchEvent(new CustomEvent('presentationstate',{detail:value}));
+  updateButtons();
+}
+function stopAuto(){setPlaying(false);}
+function next(){show(idx+1);}
+function prev(){show(idx-1);}
+function updateNarrationLines(){
+  const lines=els[idx].querySelectorAll('.narr p');
+  const cues=NARRATION[idx]?.cues||[];
+  lines.forEach((p,i)=>{
+    const cue=cues[i];const t=voiceOn&&cue?cue.start:0.7+i*1.45;
+    p.style.animation='none';p.style.opacity=sceneTime>=t?'1':'0';
+    p.style.transform=sceneTime>=t?'none':'translateY(14px)';
+    p.classList.toggle('reading',!!(voiceOn&&cue&&sceneTime>=cue.start&&sceneTime<cue.end));
+  });
+}
+function runNarration(){} // The recorded speech clock now controls the text.
+function frame(now){
+  const dt=Math.min((now-lastFrame)/1000,0.25);lastFrame=now;
+  if(playing&&!mediaWaiting){
+    if(voiceOn&&narrationAudio&&!narrationAudio.ended&&sceneTime<NARRATION[idx].duration){
+      sceneTime=narrationAudio.currentTime;
+    }else sceneTime+=dt*speed;
+    updateNarrationLines();
+    const voiced=voiceOn&&hasVoice();
+    const duration=Math.max(SCENES[idx].hold/1000,voiced?NARRATION[idx].duration+1.2:0);
+    if(sceneTime>=duration){if(idx<SCENES.length-1)show(idx+1);else setPlaying(false);}
+  }
+  const speaking=playing&&voiceOn&&hasVoice()&&!mediaWaiting&&sceneTime<NARRATION[idx].duration;
+  if(frame.speaking!==speaking){frame.speaking=speaking;document.dispatchEvent(new CustomEvent('narrationactivity',{detail:speaking}));}
+  requestAnimationFrame(frame);
+}
+btnPlay.onclick=e=>{e.stopPropagation();setPlaying(!playing);};
+document.getElementById('btnNext').onclick=e=>{e.stopPropagation();next();};
+document.getElementById('btnPrev').onclick=e=>{e.stopPropagation();prev();};
+const SPEEDS=[1.0,1.25,1.5,0.85];let sp=0;
+btnSpeed.onclick=e=>{e.stopPropagation();sp=(sp+1)%SPEEDS.length;speed=SPEEDS[sp];
+  btnSpeed.textContent='×'+speed; if(narrationAudio)narrationAudio.playbackRate=speed;};
+btnVoice.onclick=e=>{e.stopPropagation();voiceOn=!voiceOn;
+  if(!voiceOn){playToken++;if(narrationAudio)narrationAudio.pause();mediaWaiting=false;statusEl.hidden=true;document.getElementById('retryVoice').hidden=true;}
+  else if(playing)resumeSceneVoice();
+  updateNarrationLines();updateButtons();};
+document.getElementById('retryVoice').onclick=e=>{e.stopPropagation();const t=sceneTime;loadSceneVoice();sceneTime=t;setPlaying(true);};
+document.getElementById('startFilm').onclick=e=>{e.stopPropagation();setPlaying(true);window.startBgm?.();};
+document.addEventListener('keydown',e=>{
+  if(e.target.matches('button,input,select,textarea'))return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();next();}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+  else if(e.key===' '){e.preventDefault();setPlaying(!playing);}
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();}
+  else if(e.key==='Home'){show(0);}
+  else if(e.key==='End'){show(SCENES.length-1);}
+});
+stage.addEventListener('click',next);
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)setPlaying(false);});
+window.addEventListener('beforeunload',()=>{if(narrationAudio)narrationAudio.pause();});
+requestAnimationFrame(frame);updateButtons();
+
+
+/* ---- 1966 / 2026 ワイプ比較（自動 + ドラッグ） ---- */
+function runCompare(scope){
+  const box=scope.querySelector('#cmp');
+  if(!box) return;
+  const after=box.querySelector('#cmpAfter'), handle=box.querySelector('#cmpHandle');
+  let manual=false;
+  function setPos(pct){
+    pct=Math.max(0,Math.min(100,pct));
+    after.style.clipPath=`inset(0 0 0 ${pct}%)`;
+    handle.style.left=pct+'%';
+  }
+  setPos(100);
+  const t0=performance.now();
+  function auto(now){
+    if(manual) return;
+    const t=(now-t0)/1000;
+    let pct;
+    if(t<1.0) pct=100;
+    else if(t<3.4) pct=100-(t-1.0)/2.4*100;
+    else pct=50+Math.sin((t-3.4)*0.42)*38;
+    setPos(pct);
+    cmpRAF=requestAnimationFrame(auto);
+  }
+  cmpRAF=requestAnimationFrame(auto);
+  function drag(e){
+    manual=true;
+    if(cmpRAF){cancelAnimationFrame(cmpRAF);cmpRAF=null;}
+    const r=box.getBoundingClientRect();
+    const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    setPos(x/r.width*100);
+  }
+  let down=false;
+  box.addEventListener('click',e=>e.stopPropagation());
+  box.addEventListener('mousedown',e=>{down=true;drag(e);});
+  window.addEventListener('mousemove',e=>{if(down)drag(e);});
+  window.addEventListener('mouseup',()=>{down=false;});
+  box.addEventListener('touchstart',e=>{drag(e);},{passive:true});
+  box.addEventListener('touchmove',e=>{drag(e);},{passive:true});
+}
+
+/* ---- 折れ線グラフ ---- */
+function drawChart(host){
+  if(!host) return;
+  const W=1000,H=420,ML=70,MR=40,MT=30,MB=60,iw=W-ML-MR,ih=H-MT-MB,maxV=250;
+  const x=i=>ML+(i/(SALES.length-1))*iw, y=v=>MT+ih-(v/maxV)*ih;
+  let grid='',ticks='';
+  [0,50,100,150,200,250].forEach(v=>{
+    grid+=`<line class="gridline" x1="${ML}" y1="${y(v)}" x2="${W-MR}" y2="${y(v)}"/>`;
+    ticks+=`<text class="tick" x="${ML-14}" y="${y(v)+5}" text-anchor="end">${v}</text>`;});
+  let xlab='',dots='',labels='';
+  SALES.forEach((d,i)=>{
+    xlab+=`<text class="tick" x="${x(i)}" y="${H-MB+28}" text-anchor="middle">${d.year}</text>`;
+    dots+=`<circle class="dot" cx="${x(i)}" cy="${y(d.v)}" r="7" style="animation-delay:${0.9+i*0.28}s"/>`;
+    labels+=`<text class="dotlabel" x="${x(i)}" y="${y(d.v)-20}" text-anchor="middle" style="animation-delay:${1.0+i*0.28}s">${d.v}万台</text>`;});
+  const pts=SALES.map((d,i)=>`${x(i)},${y(d.v)}`).join(' ');
+  const area=`${ML},${MT+ih} ${pts} ${x(SALES.length-1)},${MT+ih}`;
+  const mi=SALES.findIndex(d=>d.year===1965);
+  host.innerHTML=`
+  <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="国内新車販売台数の推移">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0112b" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#e0112b" stop-opacity="0"/></linearGradient></defs>
+    ${grid}
+    <line class="axis" x1="${ML}" y1="${MT}" x2="${ML}" y2="${MT+ih}"/>
+    <line class="axis" x1="${ML}" y1="${MT+ih}" x2="${W-MR}" y2="${MT+ih}"/>
+    ${ticks}${xlab}
+    <text class="tick" x="${ML}" y="${MT-10}" style="fill:#8c97a8">単位：万台（国内新車販売）</text>
+    <polygon class="area" id="areaPoly" points="${area}"/>
+    <polyline class="plotline" id="plotLine" points="${pts}"/>
+    <line class="marker" id="mk" x1="${x(mi)}" y1="${MT}" x2="${x(mi)}" y2="${MT+ih}"/>
+    <text class="markertext" id="mkt" x="${x(mi)+10}" y="${MT+20}">1965　高岡工場計画</text>
+    ${dots}${labels}
+  </svg>`;
+  const line=host.querySelector('#plotLine'), len=line.getTotalLength();
+  line.style.strokeDasharray=len; line.style.strokeDashoffset=len;
+  line.getBoundingClientRect();
+  line.style.transition='stroke-dashoffset 2.7s cubic-bezier(.16,.84,.32,1) .4s';
+  line.style.strokeDashoffset='0';
+  const ar=host.querySelector('#areaPoly');
+  ar.style.transition='opacity 1.4s ease 1.9s'; ar.style.opacity='1';
+  host.querySelectorAll('.dot,.dotlabel').forEach(el=>{el.style.animation='rise .6s var(--ease) forwards';});
+  ['#mk','#mkt'].forEach(s=>{const el=host.querySelector(s);
+    el.style.transition='opacity .8s ease 3.1s'; el.style.opacity='1';});
+}
+
+/* ---- 粉塵パーティクル ---- */
+(function dust(){
+  const host=document.getElementById('dust');
+  for(let i=0;i<34;i++){
+    const m=document.createElement('span'); m.className='mote';
+    const s=Math.random()*2.6+1;
+    m.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;
+      animation-duration:${16+Math.random()*22}s;animation-delay:${-Math.random()*30}s;
+      opacity:${.25+Math.random()*.5}`;
+    host.appendChild(m);
+  }
+})();
+
+/* ---- 土埃（風に流れる粉塵・序章オープニング用） ---- */
+(function dustField(){
+  const host=document.getElementById('dustfield');
+  /* 粗い土の粒 */
+  for(let i=0;i<70;i++){
+    const g=document.createElement('span'); g.className='grit';
+    const s=Math.random()*3.4+1.2;
+    const top=32+Math.random()*62;              /* 地面寄りに多く出す */
+    g.style.cssText=`width:${s}px;height:${s}px;top:${top}%;left:0;
+      animation-duration:${9+Math.random()*16}s;animation-delay:${-Math.random()*22}s;
+      opacity:${.3+Math.random()*.5}`;
+    host.appendChild(g);
+  }
+  /* 砂塵の帯 */
+  for(let i=0;i<3;i++){
+    const h=document.createElement('span'); h.className='haze';
+    h.style.cssText=`top:${46+i*16}%;
+      animation-duration:${26+i*9}s;animation-delay:${-i*11}s`;
+    host.appendChild(h);
+  }
+})();
+
+/* ---- 走行カローラに側面写真を割り当て ---- */
+car.style.backgroundImage=CSS.getPropertyValue('--p-side');
+
+show(0);
+</script>
+
+<!-- 高岡・静かな歳月：オリジナルBGM。ユーザー操作で再生開始。 -->
+<div id="takaokaBgmPanel" style="position:fixed;right:18px;top:14px;z-index:99999;display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(10,12,16,.75);color:#eee;border:1px solid #7776;border-radius:8px;font:12px sans-serif">
+<button id="takaokaBgmToggle" style="color:inherit;background:transparent;border:0;cursor:pointer;font:inherit">♫ BGMを再生</button>
+<input id="takaokaBgmVolume" aria-label="BGM音量" title="BGM音量" type="range" min="0" max="100" value="28" style="width:76px">
+</div>
+<script>
+(()=>{const b=document.getElementById('takaokaBgmToggle'),v=document.getElementById('takaokaBgmVolume');let ctx,g,buf,source,on=false,busy=false,duck=false;
+function applyVolume(){if(g)g.gain.setTargetAtTime(Number(v.value)/100*(duck?.35:1),ctx.currentTime,.22)}
+document.addEventListener('narrationactivity',e=>{duck=e.detail;applyVolume();});
+document.addEventListener('presentationstate',e=>{if(ctx&&on){if(e.detail)ctx.resume();else ctx.suspend();}});
+window.startBgm=()=>{if(!on&&!busy)b.click();};
+const bgmUrl='assets/audio/bgm.wav';
+b.addEventListener('click',async e=>{e.stopPropagation();if(busy)return;busy=true;
+try{if(!ctx){ctx=new (window.AudioContext||window.webkitAudioContext)();g=ctx.createGain();g.connect(ctx.destination);}
+await ctx.resume();if(on){source.stop();source=null;on=false;b.textContent='♫ BGMを再生';}
+else{if(!buf){b.textContent='読み込み中…';const response=await fetch(bgmUrl);if(!response.ok)throw new Error('BGM load failed');const arrayBuffer=await response.arrayBuffer();buf=await ctx.decodeAudioData(arrayBuffer);}
+source=ctx.createBufferSource();source.buffer=buf;source.loop=true;source.loopStart=0;source.loopEnd=120;source.connect(g);g.gain.value=Number(v.value)/100*(duck?.35:1);source.start();on=true;b.textContent='Ⅱ BGMを停止';if(!playing)ctx.suspend();}}
+catch(err){b.textContent='BGMを再試行';console.error(err);}finally{busy=false;}});
+v.addEventListener('input',applyVolume);
+for(const ev of ['click','pointerdown','keydown'])document.getElementById('takaokaBgmPanel').addEventListener(ev,e=>e.stopPropagation());
+})();
+</script>
+
+</body>
+</html>
